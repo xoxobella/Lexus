@@ -1,15 +1,14 @@
 /* eslint-disable no-unused-vars */
 import React from 'react';
 import Marquee from 'react-fast-marquee';
-import { TagIcon } from '@heroicons/react/24/solid';
 
 const Offers = () => {
   const offers = [
-    "🛋️ 30% OFF on All Sofas",
-    "🚚 Free Delivery on Orders Above $999",
-    "🌟 New Collection Arrived",
-    "💰 Special Weekend Deal - Use Code: WEEKEND20",
-    "🎁 Buy 2 Get 1 Free on All Cushions",
+    "30% OFF on All Sofas",
+    "Free Delivery on Orders Above $999",
+    "New Collection Arrived",
+    "Special Weekend Deal - Use Code: WEEKEND20",
+    "Buy 2 Get 1 Free on All Cushions",
   ];
 
   return (
@@ -25,7 +24,6 @@ const Offers = () => {
               key={index} 
               className="flex items-center space-x-2 mx-8"
             >
-              <TagIcon className="h-5 w-5 text-yellow-400" />
               <span className="text-sm font-medium">{offer}</span>
             </div>
           ))}

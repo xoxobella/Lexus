@@ -8,8 +8,8 @@ export default {
     extend: {
       colors: {
         primary: "#86efac", // Green 
-        secondary: "#fbbf24", // Amber
-        tertiary:  "#e8d9cd" // grey
+        secondary: "#cbd5e1", // Slate
+        tertiary:  "#18181b" // Zinc
       },
     },
   },
