@@ -36,6 +36,16 @@ const Testimonials = () => {
       productBought: "Dining Set",
       date: "3 weeks ago"
     },
+    {
+      id: 4,
+      name: "Emma Wilson",
+      title: "Home Owner",
+      rating: 4,
+      image: "https://images.unsplash.com/photo-1438761681033-6461ffad8d80",
+      comment: "Beautiful design and very comfortable. The delivery was prompt and the assembly was straightforward. Highly recommend!",
+      productBought: "Dining Set",
+      date: "3 weeks ago"
+    },
     // Add more testimonials...
   ];
 
@@ -48,8 +58,35 @@ const Testimonials = () => {
   };
 
   return (
-    <div className="bg-gray-50 py-16">
+    <div className="bg-white py-16 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="w-full h-0.5 bg-gray-200 my-8 sm:my-12"></div>
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
+      <div className="flex flex-col md:flex-row items-center justify-center text-center md:text-left space-y-4 md:space-y-0 md:space-x-4">
+        {/* Stars */}
+        <div className="flex">
+          {[...Array(5)].map((_, index) => (
+            <svg
+              key={index}
+              className="w-6 h-6 text-black"
+              fill="currentColor"
+              viewBox="0 0 20 20"
+            >
+              <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
+            </svg>
+          ))}
+        </div>
+
+        {/* Text Content */}
+        <div className="flex flex-wrap items-center justify-center md:justify-start">
+          <span className="text-2xl md:text-3xl font-bold mr-2">Over</span>
+          <span className="text-2xl md:text-3xl font-bold text-gray-500 mr-2">500,000</span>
+          <span className="text-2xl md:text-3xl font-bold mr-2">happy customers</span>
+          <span className="text-2xl md:text-3xl font-bold mr-2">and more than</span>
+          <span className="text-2xl md:text-3xl font-bold text-gray-500 mr-2">100,000</span>
+          <span className="text-2xl md:text-3xl font-bold">five-star reviews</span>
+        </div>
+      </div>
+    </div>
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Header */}
         <div className="text-center mb-12">

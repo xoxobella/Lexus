@@ -1,5 +1,6 @@
 /* eslint-disable no-unused-vars */
 import React from 'react';
+import { Link } from 'react-router-dom';
 
 const AboutUs = () => {
   const features = [
@@ -34,9 +35,11 @@ const AboutUs = () => {
       {/* Header Section */}
       <div className="flex flex-col sm:flex-row justify-between items-start sm:items-center gap-4 mb-8 sm:mb-12">
         <h2 className="text-3xl sm:text-4xl font-bold font-serif text-gray-900">A little about us</h2>
-        <button className="px-6 py-2 border-2 border-black rounded-full hover:bg-black hover:text-white transition-colors">
-          LEARN MORE
-        </button>
+        <Link to="/aboutus" className="inline-block">
+  <button className="px-6 py-2 border-2 border-black rounded-full hover:bg-black hover:text-white transition-colors">
+    LEARN MORE
+  </button>
+</Link>
       </div>
 
       {/* Mission Statement */}

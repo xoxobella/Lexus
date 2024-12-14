@@ -125,21 +125,6 @@ const ProductSection = () => {
                         </div>
                     ))}
                 </div>
-
-                {/* Carousel Controls */}
-                <button
-                    onClick={() => setCurrentSlide(prev => prev === 0 ? featuredProducts.length - 1 : prev - 1)}
-                    className="absolute left-4 top-1/2 -translate-y-1/2 p-2 rounded-full bg-white/80 hover:bg-white transition-colors"
-                >
-                    <ChevronLeft className="h-6 w-6" />
-                </button>
-                <button
-                    onClick={() => setCurrentSlide(prev => prev === featuredProducts.length - 1 ? 0 : prev + 1)}
-                    className="absolute right-4 top-1/2 -translate-y-1/2 p-2 rounded-full bg-white/80 hover:bg-white transition-colors"
-                >
-                    <ChevronRight className="h-6 w-6" />
-                </button>
-
                 {/* Carousel Indicators */}
                 <div className="absolute bottom-4 left-1/2 -translate-x-1/2 flex space-x-2">
                     {featuredProducts.map((_, index) => (

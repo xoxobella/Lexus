@@ -85,7 +85,7 @@ const navigation = {
     },
   ],
   pages: [
-    { name: 'Company', href: '/About' },
+    { name: 'Company', href: '/Aboutus' },
     { name: 'Stores', href: '/Store' },
   ],
 }
@@ -94,7 +94,7 @@ export default function Example() {
   const [open, setOpen] = useState(false)
 
   return (
-    <div className="bg-secondary">
+    <div className="bg-white">
       {/* Mobile menu */}
       <Dialog open={open} onClose={setOpen} className="relative z-40 lg:hidden">
         <DialogBackdrop
@@ -202,7 +202,7 @@ export default function Example() {
         </div>
       </Dialog>
 
-      <header className="relative bg-seconadry">
+      <header className="relative bg-white">
         <nav aria-label="Top" className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
           <div className="border-b border-gray-200">
             <div className="flex h-16 items-center">
