@@ -1,5 +1,5 @@
+// Navbar.jsx
 'use client'
-// import Logo from '../../assets/icons/Intro-logo.png';
 import { Link } from "react-router-dom";
 import { Fragment, useState } from 'react'
 import {
@@ -16,7 +16,8 @@ import {
   TabPanel,
   TabPanels,
 } from '@headlessui/react'
-import { Bars3Icon, MagnifyingGlassIcon, ShoppingBagIcon, XMarkIcon } from '@heroicons/react/24/outline'
+import { Bars3Icon, MagnifyingGlassIcon, ShoppingBagIcon, XMarkIcon } from '@heroicons/react/24/outline';
+import { useCart } from '../../Context/Addtocart/Cart.jsx'; // Import the useCart hook
 
 const navigation = {
   categories: [
@@ -91,7 +92,8 @@ const navigation = {
 }
 
 export default function Example() {
-  const [open, setOpen] = useState(false)
+  const [open, setOpen] = useState(false);
+  const { cartCount, addToCart } = useCart(); // Use the context
 
   return (
     <div className="bg-white">
@@ -149,7 +151,7 @@ export default function Example() {
                               20% OFF
                             </div>
                           </div>
-                          <a href={item.href} className="mt-6 block font-medium text-gray-900">
+                          <a href={item.href} className="mt-6 block font-medium text-gray-900" onClick={addToCart}>
                             <span aria-hidden="true" className="absolute inset-0 z-10" />
                             {item.name}
                           </a>
@@ -221,11 +223,6 @@ export default function Example() {
                 <Link to="/">
                   <span className="sr-only">Your Company</span>
                   <h1 className="text-black font-serif text-xl hover:text-gray-500">Koala</h1>
-                  {/* <img
-                    alt=""
-                    src={Logo}
-                    className="h-40 w-40"
-                  /> */}
                 </Link>
               </div>
 
@@ -236,7 +233,7 @@ export default function Example() {
                     <Popover key={category.name} className="flex">
                       <div className="relative flex">
                         <PopoverButton
-                          className="relative z-10 -mb-px flex items-center  border-transparent pt-px text-sm font-medium text-gray-700 transition-colors duration-200 ease-out hover:border-black hover:text-gray-900 data-[open]:border-black data-[open]:text-black"
+                          className="relative z-10 -mb-px flex items-center border-transparent pt-px text-sm font-medium text-gray-700 transition-colors duration-200 ease-out hover:border-black hover:text-gray-900 data-[open]:border-black data-[open]:text-black"
                         >
                           {category.name}
                         </PopoverButton>
@@ -268,7 +265,7 @@ export default function Example() {
                                         20% OFF
                                       </div>
                                     </div>
-                                    <a href={item.href} className="mt-6 block font-medium text-gray-900 hover:text-gray-700">
+                                    <a href={item.href} className="mt-6 block font-medium text-gray-900 hover:text-gray-700" onClick={addToCart}>
                                       <span aria-hidden="true" className="absolute inset-0 z-10" />
                                       {item.name}
                                     </a>
@@ -315,14 +312,14 @@ export default function Example() {
 
                 {/* Cart */}
                 <div className="ml-4 flow-root lg:ml-6">
-                  <a href="#" className="group -m-2 flex items-center p-2">
+                  <Link to="/cart" className="group -m-2 flex items-center p-2">
                     <ShoppingBagIcon
                       aria-hidden="true"
                       className="size-6 shrink-0 text-gray-400 group-hover:text-gray-500"
                     />
-                    <span className="ml-2 text-sm font-medium text-gray-700 group-hover:text-gray-800">0</span>
+                    <span className="ml-2 text-sm font-medium text-gray-700 group-hover:text-gray-800">{cartCount}</span> {/* Update cart count display */}
                     <span className="sr-only">items in cart, view bag</span>
-                  </a>
+                  </Link>
                 </div>
               </div>
             </div>
