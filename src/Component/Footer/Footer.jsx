@@ -73,7 +73,7 @@ const Footer = () => {
       {/* Main Footer Links */}
       <div className="border-t border-gray-200">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-8">
+          <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-8"> {/* Updated for responsiveness */}
             {Object.values(footerLinks).map((section) => (
               <div key={section.title}>
                 <h4 className="font-bold text-lg mb-4">{section.title}</h4>
@@ -123,7 +123,7 @@ const Footer = () => {
       {/* Trust Badges */}
       <div className="border-t border-gray-200">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-6">
-          <div className="flex justify-center items-center gap-8">
+          <div className="flex flex-wrap justify-center items-center gap-8"> {/* Updated for responsiveness */}
             {/* Add your trust badges/payment methods here */}
             <img src="/path-to-visa.svg" alt="Visa" className="h-6 grayscale hover:grayscale-0 transition-all" />
             <img src="/path-to-mastercard.svg" alt="Mastercard" className="h-6 grayscale hover:grayscale-0 transition-all" />

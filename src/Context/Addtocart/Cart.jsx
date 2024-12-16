@@ -1,23 +1,22 @@
-/* eslint-disable no-unused-vars */
-   // CartContext.js
-   import React, { createContext, useContext, useState } from 'react';
+// Context/Addtocart/Cart.jsx
+import React, { createContext, useContext, useState } from 'react';
 
-   const CartContext = createContext();
+const CartContext = createContext();
 
-   export const CartProvider = ({ children }) => {
-     const [cartitems, setCartItems] = useState([]); // Initialize cartitems as an empty array
+export const CartProvider = ({ children }) => {
+  const [cartItems, setCartItems] = useState([]);
 
-     const addToCart = (item) => {
-       setCartItems((prevItems) => [...prevItems, item]); // Add the new item to the cart
-     };
+  const deleteItem = (id) => {
+    setCartItems((prevItems) => prevItems.filter(item => item.id !== id));
+  };
 
-     return (
-       <CartContext.Provider value={{ cartitems, addToCart }}>
-         {children}
-       </CartContext.Provider>
-     );
-   };
+  return (
+    <CartContext.Provider value={{ cartItems, setCartItems, deleteItem }}>
+      {children}
+    </CartContext.Provider>
+  );
+};
 
-   export const useCart = () => {
-     return useContext(CartContext);
-   };
+export const useCart = () => {
+  return useContext(CartContext);
+};

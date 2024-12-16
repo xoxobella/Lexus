@@ -1,20 +1,20 @@
 /* eslint-disable no-unused-vars */
 import React, { useState } from 'react';
 import { useParams, useNavigate } from 'react-router-dom';
-import { useCart } from '../Context/Addtocart/Cart.jsx';
+import { useDispatch } from 'react-redux';
+import { addToCart } from '../Redux/CartActions.js'; // Import the addToCart action
 import Navbar from '../Component/Navbar/Navbar.jsx';
 import { Star, ShoppingCart, Heart, ChevronLeft, Truck, Shield, Plus, Minus } from 'react-feather';
 
 const ProductDetails = () => {
   const { id } = useParams();
   const navigate = useNavigate();
+  const dispatch = useDispatch(); // Get the dispatch function from Redux
   const [quantity, setQuantity] = useState(1);
   const [selectedColor, setSelectedColor] = useState(null);
   const [selectedSize, setSelectedSize] = useState(null);
   const [mainImage, setMainImage] = useState(0);
   const [isFavorite, setIsFavorite] = useState(false);
-
-  const { addToCart } = useCart(); // Access the addToCart function from context
 
   // Mock product data - Replace with your actual data or API call
   const products = {
@@ -80,7 +80,7 @@ const ProductDetails = () => {
       color: selectedColor,
       size: selectedSize,
     };
-    addToCart(itemToAdd); // Pass the item details to addToCart
+    dispatch(addToCart(itemToAdd)); // Dispatch the action to add the item to the cart
     alert('Item added to cart!');
   };
 
