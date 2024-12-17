@@ -1,4 +1,3 @@
-// Navbar.jsx
 'use client'
 import { Link } from "react-router-dom";
 import { Fragment, useState } from 'react'
@@ -18,6 +17,7 @@ import {
 } from '@headlessui/react'
 import { Bars3Icon, MagnifyingGlassIcon, ShoppingBagIcon, XMarkIcon } from '@heroicons/react/24/outline';
 import { useCart } from '../../Context/Addtocart/Cart.jsx'; // Import the useCart hook
+import { VscAccount } from 'react-icons/vsc'; // Import the VscAccount icon
 
 const navigation = {
   categories: [
@@ -60,20 +60,6 @@ const navigation = {
           href: '#',
           imageSrc: 'https://tailwindui.com/plus/img/ecommerce-images/product-page-04-detail-product-shot-01.jpg',
           imageAlt: 'Drawstring top with elastic loop closure and textured interior padding.',
-        },
-        {
-          name: 'Artwork Tees',
-          href: '#',
-          imageSrc: 'https://tailwindui.com/plus/img/ecommerce-images/category-page-02-image-card-06.jpg',
-          imageAlt:
-            'Three shirts in gray, white, and blue arranged on table with same line drawing of hands and shapes overlapping on front of shirt.',
-        },
-        {
-          name: 'Artwork Tees',
-          href: '#',
-          imageSrc: 'https://tailwindui.com/plus/img/ecommerce-images/category-page-02-image-card-06.jpg',
-          imageAlt:
-            'Three shirts in gray, white, and blue arranged on table with same line drawing of hands and shapes overlapping on front of shirt.',
         },
         {
           name: 'Artwork Tees',
@@ -162,7 +148,7 @@ export default function Example() {
                       ))}
                     </div>
                   </TabPanel>
-                ))}
+                ))} 
               </TabPanels>
             </TabGroup>
 
@@ -174,19 +160,6 @@ export default function Example() {
                   </a>
                 </div>
               ))}
-            </div>
-
-            <div className="space-y-6 border-t border-gray-200 px-4 py-6">
-              <div className="flow-root">
-                <a href="/sign-up" className="-m-2 block p-2 font-medium text-gray-900">
-                  Sign in
-                </a>
-              </div>
-              <div className="flow-root">
-                <Link to="/create-account" className="-m-2 block p-2 font-medium text-gray-900">
-                  Create account
-                </Link>
-              </div>
             </div>
 
             <div className="border-t border-gray-200 px-4 py-6">
@@ -294,12 +267,9 @@ export default function Example() {
               </PopoverGroup>
               <div className="ml-auto flex items-center">
                 <div className="hidden lg:flex lg:flex-1 lg:items-center lg:justify-end lg:space-x-6">
-                  <a href="/sign-up" className="text-sm font-medium text-gray-700 hover:text-gray-800">
-                    Sign in
-                  </a>
-                  <span aria-hidden="true" className="h-6 w-px bg-gray-200" />
-                  <Link to="/create-account" className="text-sm font-medium text-gray-700 hover:text-gray-800">
-                    Create account
+                  {/* Replace user icon with VscAccount icon */}
+                  <Link to="/profile" className="flex items-center">
+                    <VscAccount className="size-6 shrink-0 text-gray-400 group-hover:text-gray-500" /> {/* VscAccount icon */}
                   </Link>
                 </div>
                 {/* Search */}

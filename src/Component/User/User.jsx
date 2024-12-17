@@ -1,39 +1,33 @@
-// UserPage.jsx
 // eslint-disable-next-line no-unused-vars
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 
-// eslint-disable-next-line react/prop-types
-const UserPage = ({ user }) => {
-  if (!user) {
-    return (
-      <div className="max-w-md mx-auto mt-10">
-        <h2 className="text-2xl font-bold mb-4">User Account</h2>
-        <p className="text-lg">You are not logged in. Please log in to view your account details.</p>
-      </div>
-    );
-  }
+const ProfileDisplay = () => {
+  const [profiles, setProfiles] = useState([]);
+
+  useEffect(() => {
+    const fetchProfiles = async () => {
+      const response = await fetch('http://localhost:3000/profiles');
+      const data = await response.json();
+      setProfiles(data);
+    };
+
+    fetchProfiles();
+  }, []);
 
   return (
-    <div className="max-w-md mx-auto mt-10">
-      <h2 className="text-2xl font-bold mb-4">User Account</h2>
-      <p className="text-lg">Welcome, {user.username}!</p>
-      <div className="mt-4">
-        <h3 className="text-xl font-semibold">Account Details:</h3>
-        <ul className="list-disc list-inside">
-          <li><strong>Username:</strong> {user.username}</li>
-          {/* You can add more user-related information here */}
-        </ul>
-      </div>
-      <div className="mt-6">
-        <button className="bg-blue-600 text-white px-4 py-2 rounded-md">
-          Edit Account
-        </button>
-        <button className="ml-4 bg-red-600 text-white px-4 py-2 rounded-md">
-          Delete Account
-        </button>
-      </div>
+    <div className="max-w-lg mx-auto p-6 bg-white rounded-lg shadow-md">
+      <h2 className="text-2xl font-bold mb-4">Saved Profiles</h2>
+      <ul>
+        {profiles.map((profile) => (
+          <li key={profile.id} className="mb-2">
+            <div className="font-bold">{profile.username}</div>
+            <div>{profile.address}, {profile.city}, {profile.state}, {profile.zip}</div>
+            <div>{profile.bankName} - {profile.accountNumber}</div>
+          </li>
+        ))}
+      </ul>
     </div>
   );
 };
 
-export default UserPage;
+export default ProfileDisplay;

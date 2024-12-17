@@ -1,49 +1,56 @@
-/* eslint-disable no-unused-vars */
-import React, { useState } from 'react';
-import { Routes, Route } from 'react-router-dom'
+// eslint-disable-next-line no-unused-vars
+import React, { useState, useEffect } from 'react';
+import { Routes, Route, Navigate } from 'react-router-dom';
 import { CartProvider } from './Context/Addtocart/Cart.jsx';
 import { Provider } from 'react-redux';
 import store from './Redux/Store.js'; 
-import Homepage from './Pages/Homepage.jsx'
-import ProductDetails from './Product/Product.jsx'
-import Aboutus from './Pages/Aboutus.jsx'
-import Cartpage from './Pages/Cartpage.jsx'
-import CreateAccount from './Forms/CreateAccount.jsx'; // Create Account page component
-import SignUp from './Forms/SignIn.jsx'; // Sign Up page component
-import UserPage from './Pages/UserPage'; // User Page component
+import Homepage from './Pages/Homepage.jsx';
+import ProductDetails from './Product/Product.jsx';
+import Aboutus from './Pages/Aboutus.jsx';
+import Cartpage from './Pages/Cartpage.jsx';
+import AuthForm from './Forms/Auth.jsx'; // Combined Auth Form component
+import Profile from './Pages/UserPage.jsx'; // User Page component
 
 const App = () => {
-  const [user, setUser] = useState(null); // User state
+  const [user, setUser] = useState(null);
+  const [users, setUsers] = useState([]);
 
-  const handleAccountCreated = (userData) => {
-    setUser(userData); // Set user data after account creation
+  useEffect(() => {
+    // Fetch users from db.json or local storage
+    fetch('/db.json')
+      .then((response) => response.json())
+      .then((data) => setUsers(data.users));
+  }, []);
+
+  const handleCreate = (newUser) => {
+    // Save new user to db.json (you can use fetch or axios to send a POST request)
+    setUsers((prevUsers) => [...prevUsers, newUser]);
+    setUser(newUser);
   };
 
-  const handleLogin = (userData) => {
-    setUser(userData); // Set user data after login
+  const handleSignIn = (user) => {
+    setUser(user);
   };
-
 
   const handleLogout = () => {
-    setUser(null); // Clear user data on logout
+    setUser(null);
   };
+
   return (
     <Provider store={store}>
-    <CartProvider>
-    <Routes>
-    <Route>
-    <Route path="/" element={<Homepage />} />
-    <Route path="/aboutus" element={<Aboutus />} />
-    <Route path="/cart" element={<Cartpage />} />
-    <Route path="/product/:id" element={<ProductDetails />} />
-    <Route path="/create-account" element={<CreateAccount onAccountCreated={handleAccountCreated} />} />
-        <Route path="/sign-up" element={<SignUp onLogin={handleLogin} />} />
-        <Route path="/user" element={<UserPage user={user} />} />
-    </Route>
-    </Routes>
-    </CartProvider>
+      <CartProvider>
+          <Routes>
+            <Route path="/" element={<Homepage />} />
+            <Route path="/aboutus" element={<Aboutus />} />
+            <Route path="/cart" element={<Cartpage />} />
+            <Route path="/product/:id" element={<ProductDetails />} />
+            <Route path="/auth" element={<AuthForm onCreate={handleCreate} onSignIn={handleSignIn} users={users} />} />
+            <Route path="/profile" element={user ? <Profile user={user} onLogout={handleLogout} /> : <Navigate to="/auth" />} />
+            <Route path="*" element={<Navigate to="/auth" />} />
+          </Routes>
+      </CartProvider>
     </Provider>
-  )
+  );
 }
 
-export default App
+export default App;
