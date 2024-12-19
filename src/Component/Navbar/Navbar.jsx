@@ -1,6 +1,10 @@
 'use client'
 import { Link } from "react-router-dom";
 import { Fragment, useState } from 'react'
+import Product1 from '../../assets/image/product/product1.webp'
+import Product2 from '../../assets/image/prodcut2/image5.avif'
+import sofa from '../../assets/image/product/sofa.avif'
+import mattres from '../../assets/image/product/Mattres.avif'
 import {
   Dialog,
   DialogBackdrop,
@@ -28,25 +32,25 @@ const navigation = {
         {
           name: 'Modern Sectional',
           href: '#',
-          imageSrc: 'https://images.unsplash.com/photo-1540638349517-3abd5afc5847',
+          imageSrc: [Product1],
           imageAlt: 'Modern L-shaped sectional sofa in gray',
         },
         {
           name: 'Leather Couch',
           href: '#',
-          imageSrc: 'https://images.unsplash.com/photo-1550254478-ead40cc54513',
+          imageSrc: [Product2],
           imageAlt: 'Brown leather sofa in contemporary living room',
         },
         {
           name: 'Loveseat',
           href: '#',
-          imageSrc: 'https://images.unsplash.com/photo-1493663284031-b7e3aefcae8e',
+          imageSrc: [sofa],
           imageAlt: 'Compact two-seater loveseat in beige',
         },
         {
           name: 'Recliner',
           href: '#',
-          imageSrc: 'https://images.unsplash.com/photo-1586023492125-27b2c045efd7',
+          imageSrc: [sofa],
           imageAlt: 'Modern reclining sofa with adjustable headrest',
         },
       ],
@@ -58,13 +62,13 @@ const navigation = {
         {
           name: 'New Arrivals',
           href: '#',
-          imageSrc: 'https://tailwindui.com/plus/img/ecommerce-images/product-page-04-detail-product-shot-01.jpg',
+          imageSrc: [mattres],
           imageAlt: 'Drawstring top with elastic loop closure and textured interior padding.',
         },
         {
           name: 'Artwork Tees',
           href: '#',
-          imageSrc: 'https://tailwindui.com/plus/img/ecommerce-images/category-page-02-image-card-06.jpg',
+          imageSrc: [mattres],
           imageAlt:
             'Three shirts in gray, white, and blue arranged on table with same line drawing of hands and shapes overlapping on front of shirt.',
         },

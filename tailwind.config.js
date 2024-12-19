@@ -20,9 +20,14 @@ export default {
           '100%': { transform: 'translateX(-100%)' },
         }
       },
+      scrollbar: {
+        thumb: '#888',
+        track: '#f0f0f0',
+      },
     },
   },
   plugins: [
-    
+    // eslint-disable-next-line no-undef
+    // require('tailwind-scrollbar-hide'),
   ],
 }

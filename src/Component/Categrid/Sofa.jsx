@@ -2,7 +2,8 @@
 import React, { useState, useEffect, useRef } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { useCart } from '../../Context/Addtocart/Cart.jsx';
-
+import Prodcut1 from '../../assets/image/product/product1.webp'
+import Prodcut2 from '../../assets/image/prodcut2/image5.avif'
 import { Star, ShoppingCart, Heart, ChevronLeft, ChevronRight } from 'react-feather';
 
 
@@ -34,7 +35,7 @@ const ProductSection = () => {
                 originalPrice: 1299.99,
                 rating: 4,
                 reviews: 125,
-                image: "https://images.unsplash.com/photo-1493663284031-b7e3aefcae8e",
+                image: [Prodcut1],
                 discount: 20,
                 category: "sofa",
                 featured: true,
@@ -46,7 +47,7 @@ const ProductSection = () => {
                 originalPrice: 1299.99,
                 rating: 4,
                 reviews: 125,
-                image: "https://images.unsplash.com/photo-1493663284031-b7e3aefcae8e",
+                image: [Prodcut2],
                 discount: 20,
                 category: "sofa",
                 featured: true,

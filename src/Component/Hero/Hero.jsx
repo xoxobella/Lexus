@@ -1,25 +1,28 @@
 'use client'
 import React, { useState } from 'react';
 import { ChevronLeftIcon, ChevronRightIcon } from '@heroicons/react/24/outline';
+import mattres from '../../assets/image/viewproduct/mattresthumb.webp'
+import sofa from '../../assets/image/viewproduct/sofathumb.webp'
+import sofabed from '../../assets/image/viewproduct/sofabedthumb.webp'
 
 const Hero = () => {
   const [currentSlide, setCurrentSlide] = useState(0);
 
   const slides = [
     {
-      image: "https://images.unsplash.com/photo-1493663284031-b7e3aefcae8e",
+      image: [sofa],
       title: "Modern Living Room Collection",
       description: "Transform your space with our latest furniture designs",
       buttonText: "Shop Now",
     },
     {
-      image: "https://images.unsplash.com/photo-1540638349517-3abd5afc5847",
+      image: [sofabed],
       title: "Luxury Sofa Sets",
       description: "Comfort meets elegance in our premium collection",
       buttonText: "Explore More",
     },
     {
-      image: "https://images.unsplash.com/photo-1550254478-ead40cc54513",
+      image: [mattres],
       title: "Special Offers",
       description: "Up to 40% off on selected items",
       buttonText: "View Deals",

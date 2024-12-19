@@ -1,3 +1,24 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+.scrollbar-none {
+    scrollbar-width: none; /* Firefox: Hides scrollbar */
+  }
+  
+  .scrollbar-none::-webkit-scrollbar {
+    display: none; /* Chrome, Safari, Edge: Hides scrollbar */
+  }
+  
+  /* Optional: Keep smooth scrolling globally */
+  html {
+    scroll-behavior: smooth; /* Adds smooth scrolling effect */
+  }
+  /* Global scrollbar hiding */
+html {
+    scrollbar-width: none; /* Firefox */
+  }
+  
+  html::-webkit-scrollbar {
+    display: none; /* Chrome, Safari, Edge */
+  }
+  

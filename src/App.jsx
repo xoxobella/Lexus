@@ -5,11 +5,11 @@ import { CartProvider } from './Context/Addtocart/Cart.jsx';
 import { Provider } from 'react-redux';
 import store from './Redux/Store.js'; 
 import Homepage from './Pages/Homepage.jsx';
-import ProductDetails from './Product/Product.jsx';
+import ProductDetails from './Product/SofaProduct.jsx';
 import Aboutus from './Pages/Aboutus.jsx';
 import Cartpage from './Pages/Cartpage.jsx';
 import AuthForm from './Forms/Auth.jsx'; // Combined Auth Form component
-import Profile from './Pages/UserPage.jsx'; // User Page component
+import Profile from './Pages/Userpage.jsx'; // User Page component
 
 const App = () => {
   const [user, setUser] = useState(null);

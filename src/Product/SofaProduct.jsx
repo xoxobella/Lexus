@@ -5,7 +5,18 @@ import { useDispatch } from 'react-redux';
 import { addToCart } from '../Redux/CartActions.js'; // Import the addToCart action
 import Navbar from '../Component/Navbar/Navbar.jsx';
 import { Star, ShoppingCart, Heart, ChevronLeft, Truck, Shield, Plus, Minus } from 'react-feather';
-
+//product 1 images
+import prodcutimage1 from '../../src/assets/image/product/product1.webp'
+import prodcutimage2 from '../assets/image/product/image2.webp'
+import prodcutimage3 from '../../src/assets/image/product/image3.webp'
+import prodcutimage4 from '../../src/assets/image/product/image4.webp'
+import prodcutimage5 from '../../src/assets/image/product/image5.webp'
+//prodcut 2 images
+import prodcut2image5 from '../../src/assets/image/prodcut2/image5.avif'
+import prodcut2image1 from '../../src/assets/image/prodcut2/image2.webp'
+import prodcut2image2 from '../../src/assets/image/prodcut2/image1.webp'
+import prodcut2image3 from '../../src/assets/image/prodcut2/image3.webp'
+import prodcut2image4 from '../../src/assets/image/prodcut2/image4.webp'
 const ProductDetails = () => {
   const { id } = useParams();
   const navigate = useNavigate();
@@ -30,10 +41,77 @@ const ProductDetails = () => {
       colors: ['Black', 'Brown', 'White', 'Gray'],
       sizes: ['Small', 'Medium', 'Large'],
       images: [
-        "https://images.unsplash.com/photo-1493663284031-b7e3aefcae8e",
-        "https://images.unsplash.com/photo-1540638349517-3abd5afc5847",
-        "https://images.unsplash.com/photo-1550254478-ead40cc54513",
-        "https://images.unsplash.com/photo-1586023492125-27b2c045efd7",
+        prodcutimage1,
+        prodcutimage2,
+        prodcutimage3,
+        prodcutimage4,
+        prodcutimage5
+      ],
+      features: [
+        "Premium leather upholstery",
+        "Solid wood frame",
+        "High-density foam cushions",
+        "Modern design aesthetic",
+      ],
+      specifications: {
+        "Dimensions": "84\" W x 38\" D x 34\" H",
+        "Weight": "120 lbs",
+        "Material": "Top-grain leather",
+        "Frame": "Kiln-dried hardwood",
+        "Assembly": "Required",
+      },
+      stock: 10,
+    },
+    2: {
+      id: 2,
+      name: "Modern Leather Sofa",
+      price: 999.99,
+      originalPrice: 1299.99,
+      rating: 4,
+      reviews: 125,
+      discount: 20,
+      description: "Experience ultimate comfort with our Modern Leather Sofa. Crafted with premium materials and designed for both style and durability.",
+      colors: ['Black', 'Brown', 'White', 'Gray'],
+      sizes: ['Small', 'Medium', 'Large'],
+      images: [
+        prodcut2image5,
+        prodcut2image1,
+        prodcut2image2,
+        prodcut2image3,
+        prodcut2image4
+      ],
+      features: [
+        "Premium leather upholstery",
+        "Solid wood frame",
+        "High-density foam cushions",
+        "Modern design aesthetic",
+      ],
+      specifications: {
+        "Dimensions": "84\" W x 38\" D x 34\" H",
+        "Weight": "120 lbs",
+        "Material": "Top-grain leather",
+        "Frame": "Kiln-dried hardwood",
+        "Assembly": "Required",
+      },
+      stock: 10,
+    },
+    3: {
+      id: 3,
+      name: "Modern Leather Sofa",
+      price: 999.99,
+      originalPrice: 1299.99,
+      rating: 4,
+      reviews: 125,
+      discount: 20,
+      description: "Experience ultimate comfort with our Modern Leather Sofa. Crafted with premium materials and designed for both style and durability.",
+      colors: ['Black', 'Brown', 'White', 'Gray'],
+      sizes: ['Small', 'Medium', 'Large'],
+      images: [
+        prodcutimage1,
+        prodcutimage2,
+        prodcutimage3,
+        prodcutimage4,
+        prodcutimage5
       ],
       features: [
         "Premium leather upholstery",
