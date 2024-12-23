@@ -2,6 +2,8 @@
 import React, { useState, useEffect, useRef } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { Star, ShoppingCart, Heart, ChevronLeft, ChevronRight } from 'react-feather';
+import sofa from '../../assets/image/product/sofa.avif'
+import mattres from '../../assets/image/product/Mattres.avif'
 
 const styles = {
     scrollContainer: {
@@ -44,7 +46,7 @@ const ProductSection = () => {
             originalPrice: 1299.99,
             rating: 4,
             reviews: 125,
-            image: "https://images.unsplash.com/photo-1493663284031-b7e3aefcae8e",
+            image: [sofa],
             discount: 20,
             category: "sofa",
             featured: true,
@@ -55,7 +57,7 @@ const ProductSection = () => {
             price: 499.99,
             rating: 5,
             reviews: 89,
-            image: "https://images.unsplash.com/photo-1586023492125-27b2c045efd7",
+            image: [mattres],
             category: "chair",
             featured: true,
         },

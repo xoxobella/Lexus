@@ -22,6 +22,7 @@ import {
 import { Bars3Icon, MagnifyingGlassIcon, ShoppingBagIcon, XMarkIcon } from '@heroicons/react/24/outline';
 import { useCart } from '../../Context/Addtocart/Cart.jsx'; // Import the useCart hook
 import { VscAccount } from 'react-icons/vsc'; // Import the VscAccount icon
+import { useSelector } from 'react-redux'; // Import useSelector to access auth state
 
 const navigation = {
   categories: [
@@ -84,6 +85,7 @@ const navigation = {
 export default function Example() {
   const [open, setOpen] = useState(false);
   const { cartCount, addToCart } = useCart(); // Use the context
+  const { isAuthenticated } = useSelector((state) => state.auth); // Access authentication state
 
   return (
     <div className="bg-white">
@@ -271,10 +273,16 @@ export default function Example() {
               </PopoverGroup>
               <div className="ml-auto flex items-center">
                 <div className="hidden lg:flex lg:flex-1 lg:items-center lg:justify-end lg:space-x-6">
-                  {/* Replace user icon with VscAccount icon */}
-                  <Link to="/profile" className="flex items-center">
-                    <VscAccount className="size-6 shrink-0 text-gray-400 group-hover:text-gray-500" /> {/* VscAccount icon */}
-                  </Link>
+                  {/* Conditionally render the account icon based on authentication state */}
+                  {isAuthenticated ? (
+                    <Link to="/profile" className="flex items-center">
+                      <VscAccount className="size-6 shrink-0 text-gray-400 group-hover:text-gray-500" />
+                    </Link>
+                  ) : (
+                    <Link to="/login" className="flex items-center">
+                      <VscAccount className="size-6 shrink-0 text-gray-400 group-hover:text-gray-500" />
+                    </Link>
+                  )}
                 </div>
                 {/* Search */}
                 <div className="flex lg:ml-6">

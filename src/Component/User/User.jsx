@@ -6,14 +6,21 @@ const ProfileDisplay = () => {
 
   useEffect(() => {
     const fetchProfiles = async () => {
-      const response = await fetch('http://localhost:3000/profiles');
-      const data = await response.json();
-      setProfiles(data);
+      try {
+        const response = await fetch('http://localhost:3000/profiles');
+        if (!response.ok) {
+          throw new Error('Failed to fetch profiles');
+        }
+        const data = await response.json();
+        setProfiles(data);
+      } catch (error) {
+        console.error('Error fetching profiles:', error);
+      }
     };
-
+  
     fetchProfiles();
   }, []);
-
+  
   return (
     <div className="max-w-lg mx-auto p-6 bg-white rounded-lg shadow-md">
       <h2 className="text-2xl font-bold mb-4">Saved Profiles</h2>

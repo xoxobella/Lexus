@@ -1,155 +1,50 @@
-/* eslint-disable no-unused-vars */
+// eslint-disable-next-line no-unused-vars
 import React, { useState } from 'react';
 import { useParams, useNavigate } from 'react-router-dom';
-import { useDispatch } from 'react-redux';
-import { addToCart } from '../Redux/CartActions.js'; // Import the addToCart action
+import { useDispatch, useSelector } from 'react-redux';
+import { addToCart, removeFromCart } from '../Redux/CartActions.js'; // Import addToCart and removeFromCart actions
 import Navbar from '../Component/Navbar/Navbar.jsx';
-import { Star, ShoppingCart, Heart, ChevronLeft, Truck, Shield, Plus, Minus } from 'react-feather';
-//product 1 images
-import prodcutimage1 from '../../src/assets/image/product/product1.webp'
-import prodcutimage2 from '../assets/image/product/image2.webp'
-import prodcutimage3 from '../../src/assets/image/product/image3.webp'
-import prodcutimage4 from '../../src/assets/image/product/image4.webp'
-import prodcutimage5 from '../../src/assets/image/product/image5.webp'
-//prodcut 2 images
-import prodcut2image5 from '../../src/assets/image/prodcut2/image5.avif'
-import prodcut2image1 from '../../src/assets/image/prodcut2/image2.webp'
-import prodcut2image2 from '../../src/assets/image/prodcut2/image1.webp'
-import prodcut2image3 from '../../src/assets/image/prodcut2/image3.webp'
-import prodcut2image4 from '../../src/assets/image/prodcut2/image4.webp'
+import { Star, ShoppingCart, Heart, ChevronLeft, Plus, Minus } from 'react-feather';
+
+// Product images (example)
+import prodcutimage1 from '../../src/assets/image/product/product1.webp';
+import prodcutimage2 from '../assets/image/product/image2.webp';
+import prodcutimage3 from '../../src/assets/image/product/image3.webp';
+import prodcutimage4 from '../../src/assets/image/product/image4.webp';
+
 const ProductDetails = () => {
   const { id } = useParams();
   const navigate = useNavigate();
-  const dispatch = useDispatch(); // Get the dispatch function from Redux
+  const dispatch = useDispatch();
+  const cartItems = useSelector(state => state.cart.cartItems); // Get cart items from Redux state
   const [quantity, setQuantity] = useState(1);
   const [selectedColor, setSelectedColor] = useState(null);
   const [selectedSize, setSelectedSize] = useState(null);
   const [mainImage, setMainImage] = useState(0);
   const [isFavorite, setIsFavorite] = useState(false);
 
-  // Mock product data - Replace with your actual data or API call
-  const products = {
-    1: {
-      id: 1,
-      name: "Modern Leather Sofa",
-      price: 999.99,
-      originalPrice: 1299.99,
-      rating: 4,
-      reviews: 125,
-      discount: 20,
-      description: "Experience ultimate comfort with our Modern Leather Sofa. Crafted with premium materials and designed for both style and durability.",
-      colors: ['Black', 'Brown', 'White', 'Gray'],
-      sizes: ['Small', 'Medium', 'Large'],
-      images: [
-        prodcutimage1,
-        prodcutimage2,
-        prodcutimage3,
-        prodcutimage4,
-        prodcutimage5
-      ],
-      features: [
-        "Premium leather upholstery",
-        "Solid wood frame",
-        "High-density foam cushions",
-        "Modern design aesthetic",
-      ],
-      specifications: {
-        "Dimensions": "84\" W x 38\" D x 34\" H",
-        "Weight": "120 lbs",
-        "Material": "Top-grain leather",
-        "Frame": "Kiln-dried hardwood",
-        "Assembly": "Required",
-      },
-      stock: 10,
-    },
-    2: {
-      id: 2,
-      name: "Modern Leather Sofa",
-      price: 999.99,
-      originalPrice: 1299.99,
-      rating: 4,
-      reviews: 125,
-      discount: 20,
-      description: "Experience ultimate comfort with our Modern Leather Sofa. Crafted with premium materials and designed for both style and durability.",
-      colors: ['Black', 'Brown', 'White', 'Gray'],
-      sizes: ['Small', 'Medium', 'Large'],
-      images: [
-        prodcut2image5,
-        prodcut2image1,
-        prodcut2image2,
-        prodcut2image3,
-        prodcut2image4
-      ],
-      features: [
-        "Premium leather upholstery",
-        "Solid wood frame",
-        "High-density foam cushions",
-        "Modern design aesthetic",
-      ],
-      specifications: {
-        "Dimensions": "84\" W x 38\" D x 34\" H",
-        "Weight": "120 lbs",
-        "Material": "Top-grain leather",
-        "Frame": "Kiln-dried hardwood",
-        "Assembly": "Required",
-      },
-      stock: 10,
-    },
-    3: {
-      id: 3,
-      name: "Modern Leather Sofa",
-      price: 999.99,
-      originalPrice: 1299.99,
-      rating: 4,
-      reviews: 125,
-      discount: 20,
-      description: "Experience ultimate comfort with our Modern Leather Sofa. Crafted with premium materials and designed for both style and durability.",
-      colors: ['Black', 'Brown', 'White', 'Gray'],
-      sizes: ['Small', 'Medium', 'Large'],
-      images: [
-        prodcutimage1,
-        prodcutimage2,
-        prodcutimage3,
-        prodcutimage4,
-        prodcutimage5
-      ],
-      features: [
-        "Premium leather upholstery",
-        "Solid wood frame",
-        "High-density foam cushions",
-        "Modern design aesthetic",
-      ],
-      specifications: {
-        "Dimensions": "84\" W x 38\" D x 34\" H",
-        "Weight": "120 lbs",
-        "Material": "Top-grain leather",
-        "Frame": "Kiln-dried hardwood",
-        "Assembly": "Required",
-      },
-      stock: 10,
-    },
-    // Add more products...
+  // Example product data (replace with actual product data)
+  const product = {
+    id: '1',
+    name: 'Product 1',
+    price: 99.99,
+    originalPrice: 149.99,
+    discount: 33,
+    rating: 4,
+    reviews: 25,
+    description: 'This is a great product description.',
+    images: [prodcutimage1, prodcutimage2, prodcutimage3, prodcutimage4],
+    colors: ['Red', 'Blue', 'Green'],
+    sizes: ['S', 'M', 'L', 'XL'],
+    stock: 10,
   };
 
-  const product = products[id]; // Corrected from item[id] to products[id]
-
-  if (!product) {
-    return (
-      <div className="min-h-screen flex items-center justify-center">
-        <div className="text-center">
-          <h2 className="text-2xl font-bold text-gray-900">Product Not Found</h2>
-          <button 
-            onClick={() => navigate('/')}
-            className="mt-4 text-blue-600 hover:text-blue-800"
-          >
-            Return to Home
-          </button>
-        </div>
-      </div>
-    );
-  }
-
   const handleAddItem = () => {
+    if (!selectedColor || !selectedSize) {
+      alert('Please select a color and size.');
+      return;
+    }
+
     const itemToAdd = {
       id: product.id,
       name: product.name,
@@ -158,9 +53,20 @@ const ProductDetails = () => {
       color: selectedColor,
       size: selectedSize,
     };
+
+    console.log('Adding item to cart:', itemToAdd); // Log the item being added
     dispatch(addToCart(itemToAdd)); // Dispatch the action to add the item to the cart
     alert('Item added to cart!');
   };
+
+  const handleRemoveItem = (itemId) => {
+    console.log('Removing item from cart with ID:', itemId); // Log the item being removed
+    dispatch(removeFromCart(itemId));  // Dispatch the action to remove the item from the cart
+    alert('Item removed from cart!');
+  };
+
+  // Check if the current product is already in the cart
+  const isProductInCart = cartItems.some(item => item.id === product.id);
 
   return (
     <>
@@ -185,15 +91,13 @@ const ProductDetails = () => {
                 className="w-full h-full object-cover"
               />
             </div>
-            
+
             <div className="grid grid-cols-4 gap-4">
               {product.images.map((image, index) => (
                 <button
                   key={index}
                   onClick={() => setMainImage(index)}
-                  className={`aspect-square rounded-lg overflow-hidden border-2 ${
-                    mainImage === index ? 'border-black' : 'border-transparent'
-                  }`}
+                  className={`aspect-square rounded-lg overflow-hidden border-2 ${mainImage === index ? 'border-black' : 'border-transparent'}`}
                 >
                   <img
                     src={image}
@@ -209,15 +113,12 @@ const ProductDetails = () => {
           <div className="space-y-6">
             <div>
               <h1 className="text-3xl font-bold text-gray-900">{product.name}</h1>
-              
               <div className="flex items-center mt-4">
                 <div className="flex items-center">
                   {[...Array(5)].map((_, index) => (
                     <Star
                       key={index}
-                      className={`h-5 w-5 ${
-                        index < product.rating ? 'fill-yellow-400 text-yellow-400' : 'text-gray-300'
-                      }`}
+                      className={`h-5 w-5 ${index < product.rating ? 'fill-yellow-400 text-yellow-400' : 'text-gray-300'}`}
                     />
                   ))}
                 </div>
@@ -253,11 +154,7 @@ const ProductDetails = () => {
                   <button
                     key={color}
                     onClick={() => setSelectedColor(color)}
-                    className={`px-4 py-2 border rounded-md ${
-                      selectedColor === color 
-                        ? 'border-black bg-black text-white' 
-                        : 'border-gray-200 hover:border-gray-300'
-                    }`}
+                    className={`px-4 py-2 border rounded-md ${selectedColor === color ? 'border-black bg-black text-white' : 'border-gray-200 hover:border-gray-300'}`}
                   >
                     {color}
                   </button>
@@ -273,11 +170,7 @@ const ProductDetails = () => {
                   <button
                     key={size}
                     onClick={() => setSelectedSize(size)}
-                    className={`px-4 py-2 border rounded-md ${
-                      selectedSize === size 
-                        ? 'border-black bg-black text-white' 
-                        : 'border-gray-200 hover:border-gray-300'
-                    }`}
+                    className={`px-4 py-2 border rounded-md ${selectedSize === size ? 'border-black bg-black text-white' : 'border-gray-200 hover:border-gray-300'}`}
                   >
                     {size}
                   </button>
@@ -307,51 +200,38 @@ const ProductDetails = () => {
 
             {/* Add to Cart and Wishlist */}
             <div className="flex space-x-4">
-              <button onClick={handleAddItem} className="flex-1 bg-black hover:bg-gray-800 text-white px-6 py-3 rounded-md font-medium flex items-center justify-center space-x-2">
-                <ShoppingCart className="h-5 w-5" />
+              {/* Add to Cart Button */}
+              <button
+                onClick={handleAddItem}
+                aria-label="Add to cart"
+                className="flex-1 bg-black hover:bg-gray-800 text-white px-6 py-3 rounded-md font-medium flex items-center justify-center space-x-2"
+              >
+                <ShoppingCart className="h-5 w-5" aria-hidden="true" />
                 <span>Add to Cart</span>
               </button>
+
+              {/* Favorite/Like Button */}
               <button
                 onClick={() => setIsFavorite(!isFavorite)}
-                className="p-3 border rounded-md hover:bg-gray-50"
+                aria-label="Add to favorites"
+                className={`p-2 border rounded-md ${isFavorite ? 'bg-red-100' : 'bg-gray-100'}`}
               >
-                <Heart className={`h-6 w-6 ${isFavorite ? 'fill-red-500 text-red-500' : 'text-gray-600'}`} />
+                <Heart
+                  className={`h-5 w-5 ${isFavorite ? 'fill-red-500 text-red-500' : 'text-gray-500'}`}
+                  aria-hidden="true"
+                />
               </button>
             </div>
 
-            {/* Specifications */}
-            <div className="border-t pt-6">
-              <h3 className="text-lg font-medium text-gray-900 mb-4">Specifications</h3>
-              <div className="grid grid-cols-2 gap-4">
-                {Object.entries(product.specifications).map(([key, value]) => (
-                  <div key={key}>
-                    <dt className="text-sm text-gray-600">{key}</dt>
-                    <dd className="text-sm font-medium text-gray-900">{value}</dd>
-                  </div>
-                ))}
-              </div>
-            </div>
-
-            {/* Features */}
-            <div className="border-t pt-6">
-              <h3 className="text-lg font-medium text-gray-900 mb-4">Features</h3>
-              <ul className="space-y-2">
-                {product.features.map((feature, index) => (
-                  <li key={index} className="flex items-center text-gray-600">
-                    <Shield className="h-5 w-5 text-green-500 mr-2" />
-                    {feature}
-                  </li>
-                ))}
-              </ul>
-            </div>
-
-            {/* Shipping Info */}
-            <div className="border-t pt-6">
-              <div className="flex items-center space-x-2 text-gray-600">
-                <Truck className="h-5 w-5" />
-                <span>Free shipping on orders over $999</span>
-              </div>
-            </div>
+            {/* Remove from Cart Button */}
+            {isProductInCart && (
+              <button
+                onClick={() => handleRemoveItem(product.id)}
+                className="mt-4 text-red-600 hover:text-red-800"
+              >
+                Remove from Cart
+              </button>
+            )}
           </div>
         </div>
       </div>
