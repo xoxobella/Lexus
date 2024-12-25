@@ -1,10 +1,118 @@
 {
-   "profiles": [
-     {
-       "id": 1,
-       "username": "testuser",
-       "email": "test@example.com",
-       "password": "password"
-     }
-   ]
- }
+  "profiles": [
+    {
+      "id": "1",
+      "username": "testuser",
+      "email": "test@example.com",
+      "password": "password"
+    },
+    {
+      "id": "7460",
+      "username": "jusst_kuldeep",
+      "email": "example@gmail.com",
+      "password": "laila",
+      "address": "jamnagar",
+      "city": "jamnagar",
+      "state": "gujarat",
+      "zip": "361008",
+      "bankName": "bob",
+      "accountNumber": "13254512312154"
+    },
+    {
+      "id": "654d",
+      "username": "jusst_kuldeep",
+      "email": "example@gmail.com",
+      "password": "laila",
+      "address": "jamnagar",
+      "city": "jamnagar",
+      "state": "gujarat",
+      "zip": "361008",
+      "bankName": "bob",
+      "accountNumber": "13254512312154"
+    },
+    {
+      "id": "13a8",
+      "username": "jusst_kuldeep",
+      "email": "example@gmail.com",
+      "password": "laila",
+      "address": "jamnagar",
+      "city": "jamnagar",
+      "state": "gujarat",
+      "zip": "361008",
+      "bankName": "bob",
+      "accountNumber": "13254512312154"
+    },
+    {
+      "id": "e830",
+      "username": "jusst_kuldeep",
+      "email": "example@gmail.com",
+      "password": "laila",
+      "address": "jamnagar",
+      "city": "jamnagar",
+      "state": "gujarat",
+      "zip": "361008",
+      "bankName": "bob",
+      "accountNumber": "13254512312154"
+    },
+    {
+      "id": "89b5",
+      "username": "abc",
+      "email": "as@gmail.com",
+      "password": "sadasf",
+      "address": "dad",
+      "city": "adfsmb",
+      "state": "dfbs",
+      "zip": "53354",
+      "bankName": "fnsjkf",
+      "accountNumber": "afnsdjf"
+    },
+    {
+      "id": "b8a6",
+      "username": "abc",
+      "email": "as@gmail.com",
+      "password": "sadasf",
+      "address": "dad",
+      "city": "adfsmb",
+      "state": "dfbs",
+      "zip": "53354",
+      "bankName": "fnsjkf",
+      "accountNumber": "afnsdjf"
+    },
+    {
+      "id": "3db1",
+      "username": "somexmeme",
+      "email": "introxmediaa@gmail.com",
+      "password": "bhjwbdjbj",
+      "address": "kndjsndkj",
+      "city": "kjnkjsbdd",
+      "state": "nkjnkdjnkasjd",
+      "zip": "1551",
+      "bankName": "165165156165",
+      "accountNumber": "561561561"
+    },
+    {
+      "id": "ad12",
+      "username": "ndklasnfklan",
+      "email": "example@gmail.com",
+      "password": "nndksandlkasdn",
+      "address": "fdkfnkjfnk",
+      "city": "lkefmkldsfn",
+      "state": "ksfksdfn",
+      "zip": "nklfnsfnl",
+      "bankName": "nlsdnfslnfl",
+      "accountNumber": "dlkslfknslk"
+    },
+    {
+      "id": "b0d8",
+      "username": "fihkfjsjfbjb",
+      "email": "example@gmail.com",
+      "password": "fskjfbkj",
+      "address": "nnfksdnfjsbk",
+      "city": "nsfnkdsnfksdjnf",
+      "state": "fknnkdnfkdsn",
+      "zip": "nfsnkfnsdkfj",
+      "bankName": "nkjvndfsdjk",
+      "accountNumber": "ndjsnfsdbf"
+    }
+  ]
+}

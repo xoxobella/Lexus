@@ -47,6 +47,7 @@ const App = () => {
             <Route path="/auth" element={<AuthForm onCreate={handleCreate} onSignIn={handleSignIn} users={users} />} />
             <Route path="/profile" element={user ? <Profile user={user} onLogout={handleLogout} /> : <Navigate to="/auth" />} />
             <Route path="*" element={<Navigate to="/auth" />} />
+            <Route path="/user" element={<Profile />}/>
           </Routes>
       </CartProvider>
     </Provider>
