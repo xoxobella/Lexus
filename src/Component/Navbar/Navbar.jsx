@@ -84,7 +84,9 @@ const navigation = {
 
 export default function Example() {
   const [open, setOpen] = useState(false);
-  const { cartCount, addToCart } = useCart(); // Use the context
+  const { cartItems } = useCart();
+  const cartCount = cartItems.reduce((total, item) => total + item.quantity, 0);
+  const { addToCart } = useCart(); // Use the context
   const { isAuthenticated } = useSelector((state) => state.auth); // Access authentication state
 
   return (
@@ -154,7 +156,7 @@ export default function Example() {
                       ))}
                     </div>
                   </TabPanel>
-                ))} 
+                ))}
               </TabPanels>
             </TabGroup>
 
@@ -293,13 +295,17 @@ export default function Example() {
                 </div>
 
                 {/* Cart */}
-                <div className="ml-4 flow-root lg:ml-6">
+                <div className="relative ml-4 flow-root lg:ml-6">
                   <Link to="/cart" className="group -m-2 flex items-center p-2">
                     <ShoppingBagIcon
                       aria-hidden="true"
-                      className="size-6 shrink-0 text-gray-400 group-hover:text-gray-500"
+                      className="w-6 h-6 shrink-0 text-gray-400 group-hover:text-gray-500"
                     />
-                    <span className="ml-2 text-sm font-medium text-gray-700 group-hover:text-gray-800">{cartCount}</span> {/* Update cart count display */}
+                    {cartCount > 0 && (
+                      <span className="absolute top-0 right-0 inline-flex items-center justify-center h-4 w-4 rounded-full bg-red-500 text-white text-xs font-bold">
+                        {cartCount}
+                      </span>
+                    )}
                     <span className="sr-only">items in cart, view bag</span>
                   </Link>
                 </div>

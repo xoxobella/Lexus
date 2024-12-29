@@ -22,3 +22,15 @@ html {
     display: none; /* Chrome, Safari, Edge */
   }
   
+  .button {
+    @apply flex items-center px-4 py-2 border rounded-lg;
+  }
+  
+  .dropdown-menu {
+    @apply absolute right-0 mt-2 bg-white shadow-md border rounded-lg;
+  }
+  
+  .dropdown-item {
+    @apply flex items-center w-full px-4 py-2 text-left hover:bg-gray-100;
+  }
+  

@@ -1,7 +1,6 @@
 // eslint-disable-next-line no-unused-vars
 import React, { useState, useEffect } from 'react';
 import { Routes, Route, Navigate } from 'react-router-dom';
-import { CartProvider } from './Context/Addtocart/Cart.jsx';
 import { Provider } from 'react-redux';
 import store from './Redux/Store.js'; 
 import Homepage from './Pages/Homepage.jsx';
@@ -38,7 +37,6 @@ const App = () => {
 
   return (
     <Provider store={store}>
-      <CartProvider>
           <Routes>
             <Route path="/" element={<Homepage />} />
             <Route path="/aboutus" element={<Aboutus />} />
@@ -49,7 +47,6 @@ const App = () => {
             <Route path="*" element={<Navigate to="/auth" />} />
             <Route path="/user" element={<Profile />}/>
           </Routes>
-      </CartProvider>
     </Provider>
   );
 }
