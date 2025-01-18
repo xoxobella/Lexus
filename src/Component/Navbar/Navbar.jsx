@@ -5,6 +5,7 @@ import Product1 from '../../assets/image/product/product1.webp'
 import Product2 from '../../assets/image/prodcut2/image5.avif'
 import sofa from '../../assets/image/product/sofa.avif'
 import mattres from '../../assets/image/product/Mattres.avif'
+import SearchWindow from "../Search/Search.jsx";
 import {
   Dialog,
   DialogBackdrop,
@@ -23,6 +24,9 @@ import { Bars3Icon, MagnifyingGlassIcon, ShoppingBagIcon, XMarkIcon } from '@her
 import { useCart } from '../../Context/Addtocart/Cart.jsx'; // Import the useCart hook
 import { VscAccount } from 'react-icons/vsc'; // Import the VscAccount icon
 import { useSelector } from 'react-redux'; // Import useSelector to access auth state
+
+
+
 
 const navigation = {
   categories: [
@@ -88,6 +92,7 @@ export default function Example() {
   const cartCount = cartItems.reduce((total, item) => total + item.quantity, 0);
   const { addToCart } = useCart(); // Use the context
   const { isAuthenticated } = useSelector((state) => state.auth); // Access authentication state
+  const [isSearchOpen, setIsSearchOpen] = useState(false);
 
   return (
     <div className="bg-white">
@@ -288,10 +293,10 @@ export default function Example() {
                 </div>
                 {/* Search */}
                 <div className="flex lg:ml-6">
-                  <a href="#" className="p-2 text-gray-400 hover:text-gray-500">
-                    <span className="sr-only">Search</span>
-                    <MagnifyingGlassIcon aria-hidden="true" className="size-6" />
-                  </a>
+                <button onClick={() => setIsSearchOpen(true)} className="p-2 text-gray-400 hover:text-gray-500">
+            <span className="sr-only">Search</span>
+            <MagnifyingGlassIcon aria-hidden="true" className="size-6" />
+          </button>
                 </div>
 
                 {/* Cart */}

@@ -52,66 +52,7 @@ const ProductSection = () => {
                 category: "sofa",
                 featured: true,
             },
-            {
-                id: 3,
-                name: "Modern Leather Sofa",
-                price: 999.99,
-                originalPrice: 1299.99,
-                rating: 4,
-                reviews: 125,
-                image: "https://images.unsplash.com/photo-1493663284031-b7e3aefcae8e",
-                discount: 20,
-                category: "sofa",
-                featured: true,
-            },
-            {
-                id: 4,
-                name: "Modern Leather Sofa",
-                price: 999.99,
-                originalPrice: 1299.99,
-                rating: 4,
-                reviews: 125,
-                image: "https://images.unsplash.com/photo-1493663284031-b7e3aefcae8e",
-                discount: 20,
-                category: "sofa",
-                featured: true,
-            },
-            {
-                id: 5,
-                name: "Modern Leather Sofa",
-                price: 999.99,
-                originalPrice: 1299.99,
-                rating: 4,
-                reviews: 125,
-                image: "https://images.unsplash.com/photo-1493663284031-b7e3aefcae8e",
-                discount: 20,
-                category: "sofa",
-                featured: true,
-            },
-            {
-                id: 6,
-                name: "Modern Leather Sofa",
-                price: 999.99,
-                originalPrice: 1299.99,
-                rating: 4,
-                reviews: 125,
-                image: "https://images.unsplash.com/photo-1493663284031-b7e3aefcae8e",
-                discount: 20,
-                category: "sofa",
-                featured: true,
-            },
-            {
-                id: 7,
-                name: "Modern Leather Sofa",
-                price: 999.99,
-                originalPrice: 1299.99,
-                rating: 4,
-                reviews: 125,
-                image: "https://images.unsplash.com/photo-1493663284031-b7e3aefcae8e",
-                discount: 20,
-                category: "sofa",
-                featured: true,
-            },
+           
             // ... your existing products
         ];
 
@@ -191,7 +132,7 @@ const ProductSection = () => {
                                         onClick={() => navigate(`/product/${product.id}`)}
                                     >
                                         <img
-                                            src={product.image}
+                                           src={product.image[0]}
                                             alt={product.name}
                                             className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
                                         />

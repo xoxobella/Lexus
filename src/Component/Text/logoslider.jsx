@@ -1,30 +1,34 @@
 /* eslint-disable no-unused-vars */
 import React from 'react';
+import bazaar from '../../assets/logo/bazaar.png'
+import urban from '../../assets/logo/urban.png'
+import vogue from '../../assets/logo/vogue.png'
+import zara from '../../assets/logo/zara.png'
 
 const LogoSlider = () => {
     const logos = [
         {
           id: 1,
           name: 'FINERY29',
-          image: '/path-to-finery-logo.png', // Replace with actual logo paths
+          image: [bazaar], // Replace with actual logo paths
           alt: 'Finery29 Logo'
         },
         {
           id: 2,
           name: 'URBAN LIST',
-          image: '/path-to-urbanlist-logo.png',
+          image: [urban],
           alt: 'Urban List Logo'
         },
         {
           id: 3,
           name: 'VOGUE',
-          image: '/path-to-vogue-logo.png',
+          image: [vogue],
           alt: 'Vogue Logo'
         },
         {
           id: 4,
           name: 'BAZAAR',
-          image: '/path-to-bazaar-logo.png',
+          image: [zara],
           alt: 'Bazaar Logo'
         }
       ];

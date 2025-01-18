@@ -11,6 +11,7 @@
     "start": "json-server --watch db.json --port 3000"
   },
   "dependencies": {
+    "@auth0/auth0-react": "^2.2.4",
     "@headlessui/react": "^2.2.0",
     "@heroicons/react": "^2.2.0",
     "@reduxjs/toolkit": "^2.5.0",
