@@ -1,6 +1,7 @@
 /* eslint-disable no-unused-vars */
 import React from 'react';
 import { Link } from 'react-router-dom';
+import Video from  '../../assets/videos/treevideo.mp4'
 
 const AboutUs = () => {
   const features = [
@@ -34,9 +35,9 @@ const AboutUs = () => {
     <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8 sm:py-16">
       {/* Header Section */}
       <div className="flex flex-col sm:flex-row justify-between items-start sm:items-center gap-4 mb-8 sm:mb-12">
-        <h2 className="text-3xl sm:text-4xl font-bold font-serif text-gray-900">A little about us</h2>
+        <h8 className="text-6xl font-bold font-serif text-secondary">A little about us</h8>
         <Link to="/aboutus" className="inline-block">
-  <button className="px-6 py-2 border-2 border-black rounded-full hover:bg-black hover:text-white transition-colors">
+  <button className="px-6 py-2 border-2 border-black rounded-full hover:bg-primary hover:text-white transition-colors">
     LEARN MORE
   </button>
 </Link>
@@ -44,26 +45,30 @@ const AboutUs = () => {
 
       {/* Mission Statement */}
       <div className="relative mb-8 sm:mb-16">
-        <div className="w-full h-[300px] sm:h-[400px] rounded-2xl overflow-hidden">
-          <img 
-            src="https://images.unsplash.com/photo-1502082553048-f009c37129b9" 
-            alt="Forest background" 
-            className="w-full h-full object-cover"
-          />
-          <div className="absolute inset-0 bg-black/40" />
-          <div className="absolute inset-0 p-6 sm:p-12 flex flex-col justify-center">
-            <h3 className="text-2xl sm:text-4xl font-bold text-white max-w-lg mb-4">
-              Our mission is to help plant and protect 2 billion trees in 10 years
-            </h3>
-            <p className="text-white max-w-2xl text-sm sm:text-base">
-              We love creating habitats for all Aussies, including those of the furry persuasion. 
-              Shockingly, 95% of koalas perished during the horrific 2019-20 bushfires, 
-              so we&apos;ve partnered with not-for-profit organisation WWF-Australia with the aim of 
-              regenerating the homes of this devastated population.
-            </p>
-          </div>
-        </div>
-      </div>
+  <div className="w-full h-[300px] sm:h-[400px] rounded-2xl overflow-hidden relative">
+    <video
+      src={Video} // Replace with your actual video path
+      className="w-full h-full object-cover"
+      autoPlay
+      loop
+      muted
+      playsInline
+    />
+    <div className="absolute inset-0 bg-black/40" />
+    <div className="absolute inset-0 p-6 sm:p-12 flex flex-col justify-center">
+      <h3 className="text-2xl sm:text-4xl font-bold text-white max-w-lg mb-4">
+        Our mission is to help plant and protect 2 billion trees in 10 years
+      </h3>
+      <p className="text-white max-w-2xl text-sm sm:text-base">
+        We love creating habitats for all Aussies, including those of the furry persuasion. 
+        Shockingly, 95% of koalas perished during the horrific 2019-20 bushfires, 
+        so we&apos;ve partnered with not-for-profit organisation WWF-Australia with the aim of 
+        regenerating the homes of this devastated population.
+      </p>
+    </div>
+  </div>
+</div>
+
 
       {/* Features Grid */}
       <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-8">

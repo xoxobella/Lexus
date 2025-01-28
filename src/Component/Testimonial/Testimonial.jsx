@@ -59,44 +59,18 @@ const Testimonials = () => {
 
   return (
     <div className="bg-white py-16 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="w-full h-0.5 bg-gray-200 my-8 sm:my-12"></div>
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
-      <div className="flex flex-col md:flex-row items-center justify-center text-center md:text-left space-y-4 md:space-y-0 md:space-x-4">
-        {/* Stars */}
-        <div className="flex">
-          {[...Array(5)].map((_, index) => (
-            <svg
-              key={index}
-              className="w-6 h-6 text-black"
-              fill="currentColor"
-              viewBox="0 0 20 20"
-            >
-              <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
-            </svg>
-          ))}
-        </div>
-
-        {/* Text Content */}
-        <div className="flex flex-wrap items-center justify-center md:justify-start">
-          <span className="text-2xl md:text-3xl font-bold mr-2">Over</span>
-          <span className="text-2xl md:text-3xl font-bold text-gray-500 mr-2">500,000</span>
-          <span className="text-2xl md:text-3xl font-bold mr-2">happy customers</span>
-          <span className="text-2xl md:text-3xl font-bold mr-2">and more than</span>
-          <span className="text-2xl md:text-3xl font-bold text-gray-500 mr-2">100,000</span>
-          <span className="text-2xl md:text-3xl font-bold">five-star reviews</span>
-        </div>
-      </div>
-    </div>
+      <div className="w-full h-0.5 bg-gray-200 my-8 sm:my-12"></div>
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Header */}
-        <div className="text-center mb-12">
-          <h2 className="text-3xl font-bold font-serif text-gray-900 mb-4">
+        <div className="mb-12 flex flex-col items-end">
+          <h2 className="text-6xl text-secondary font-serif font-bold text-right">
             What Our Customers Say
           </h2>
-          <p className="text-gray-600 max-w-2xl mx-auto">
+          <p className="text-primary text-right max-w-2xl ml-auto">
             Don&lsquo;t just take our word for it. Hear what our valued customers have to say about their experience with our furniture.
           </p>
         </div>
+
 
         {/* Grid Layout */}
         <div className="hidden lg:grid grid-cols-3 gap-8 mb-12">
@@ -106,7 +80,7 @@ const Testimonials = () => {
               className="bg-white rounded-xl shadow-sm p-8 relative"
             >
               {/* <Quote className="absolute top-6 right-6 h-8 w-8 text-gray-200" /> */}
-              
+
               {/* Customer Info */}
               <div className="flex items-center mb-6">
                 <img
@@ -125,11 +99,10 @@ const Testimonials = () => {
                 {[...Array(5)].map((_, index) => (
                   <Star
                     key={index}
-                    className={`h-5 w-5 ${
-                      index < testimonial.rating
+                    className={`h-5 w-5 ${index < testimonial.rating
                         ? 'fill-yellow-400 text-yellow-400'
                         : 'text-gray-300'
-                    }`}
+                      }`}
                   />
                 ))}
               </div>
@@ -160,7 +133,7 @@ const Testimonials = () => {
                 >
                   <div className="bg-white rounded-xl shadow-sm p-6 relative">
                     {/* <Quote className="absolute top-4 right-4 h-6 w-6 text-gray-200" /> */}
-                    
+
                     {/* Customer Info */}
                     <div className="flex items-center mb-4">
                       <img
@@ -179,11 +152,10 @@ const Testimonials = () => {
                       {[...Array(5)].map((_, index) => (
                         <Star
                           key={index}
-                          className={`h-4 w-4 ${
-                            index < testimonial.rating
+                          className={`h-4 w-4 ${index < testimonial.rating
                               ? 'fill-yellow-400 text-yellow-400'
                               : 'text-gray-300'
-                          }`}
+                            }`}
                         />
                       ))}
                     </div>
@@ -222,9 +194,8 @@ const Testimonials = () => {
               <button
                 key={index}
                 onClick={() => setCurrentSlide(index)}
-                className={`w-2 h-2 rounded-full transition-all ${
-                  currentSlide === index ? 'w-4 bg-gray-800' : 'bg-gray-300'
-                }`}
+                className={`w-2 h-2 rounded-full transition-all ${currentSlide === index ? 'w-4 bg-gray-800' : 'bg-gray-300'
+                  }`}
               />
             ))}
           </div>
@@ -234,15 +205,42 @@ const Testimonials = () => {
         <div className="text-center mt-12">
           <a
             href="/reviews"
-            className="inline-flex items-center text-blue-600 hover:text-blue-800"
+            className="inline-flex items-center text-primary hover:text-gray-800  mb-1 truncate hover:underline"
           >
             View all reviews
             <ChevronRight className="h-5 w-5 ml-1" />
           </a>
         </div>
       </div>
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
+        <div className="flex flex-col md:flex-row items-center justify-center text-center md:text-left space-y-4 md:space-y-0 md:space-x-4">
+          {/* Stars */}
+          <div className="flex">
+            {[...Array(5)].map((_, index) => (
+              <svg
+                key={index}
+                className="w-6 h-6 text-black"
+                fill="currentColor"
+                viewBox="0 0 20 20"
+              >
+                <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
+              </svg>
+            ))}
+          </div>
+
+          {/* Text Content */}
+          <div className="flex flex-wrap items-center justify-center md:justify-start">
+            <span className="text-2xl md:text-3xl font-bold mr-2">Over</span>
+            <span className="text-2xl md:text-3xl font-bold text-gray-500 mr-2">500,000</span>
+            <span className="text-2xl md:text-3xl font-bold mr-2">happy customers</span>
+            <span className="text-2xl md:text-3xl font-bold mr-2">and more than</span>
+            <span className="text-2xl md:text-3xl font-bold text-gray-500 mr-2">100,000</span>
+            <span className="text-2xl md:text-3xl font-bold">five-star reviews</span>
+          </div>
+        </div>
+      </div>
     </div>
   );
 };
 
-export default Testimonials;
+export default Testimonials; 

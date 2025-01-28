@@ -3,7 +3,8 @@ import React, { createContext, useContext, useState } from 'react';
 
 // Currency configuration
 export const CURRENCY_CONFIG = {
-  USD: { symbol: '$', rate: 1 }, // Base currency
+  USD: { symbol: '$', rate: 1 }, // Base   
+  // currency
   AUD: { symbol: 'AUD $', rate: 1.5 },
   JPY: { symbol: '¥', rate: 110 },
 };

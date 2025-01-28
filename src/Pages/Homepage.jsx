@@ -7,23 +7,26 @@ import Sofa from '../Component/Categrid/Sofa.jsx'
 import Best_seller from '../Component/Categrid/Best_seller.jsx'
 import Testimonials from '../Component/Testimonial/Testimonial.jsx'
 import About from '../Component/About/About.jsx'
+import Extra from '../Component/Extras/Extra.jsx'
 import Mattres from '../Component/Categrid/Mattres.jsx'
+import Service from '../Component/Text/Serviceline.jsx'
 import Logoslider from '../Component/Text/logoslider.jsx'
 import Footer from '../Component/Footer/Footer.jsx'
 const Homepage = () => {
   return (
-   <>
-   <Navbar />
-   <Hero />
-   <Text />
-   <Mattres />
-   <Logoslider />
-   <Sofa />
-   <Best_seller />
-   <Testimonials />
-   <About />
-   <Footer />
-   </>
+    <>
+      <Navbar />
+      <Extra />
+      <Service />
+      <Text />
+      <Mattres />
+      <Logoslider />
+      <Sofa />
+      <Best_seller />
+      <Testimonials />
+      <About />
+      <Footer />
+    </>
   )
 }
 

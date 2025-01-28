@@ -5,7 +5,7 @@ import Product1 from '../../assets/image/product/product1.webp'
 import Product2 from '../../assets/image/prodcut2/image5.avif'
 import sofa from '../../assets/image/product/sofa.avif'
 import mattres from '../../assets/image/product/Mattres.avif'
-import SearchWindow from "../Search/Search.jsx";
+
 import {
   Dialog,
   DialogBackdrop,
@@ -42,7 +42,7 @@ const navigation = {
         },
         {
           name: 'Leather Couch',
-          href: '#',
+          Link: '/sofapage',
           imageSrc: [Product2],
           imageAlt: 'Brown leather sofa in contemporary living room',
         },
@@ -72,7 +72,7 @@ const navigation = {
         },
         {
           name: 'Artwork Tees',
-          href: '#',
+          Link: '/sofapage',
           imageSrc: [mattres],
           imageAlt:
             'Three shirts in gray, white, and blue arranged on table with same line drawing of hands and shapes overlapping on front of shirt.',
@@ -205,12 +205,13 @@ export default function Example() {
               </button>
 
               {/* Logo */}
-              <div className="ml-4 flex lg:ml-0">
+              <div className="flex">
                 <Link to="/">
                   <span className="sr-only">Your Company</span>
                   <h1 className="text-black font-serif text-xl hover:text-gray-500">Koala</h1>
                 </Link>
               </div>
+
 
               {/* Flyout menus */}
               <PopoverGroup className="hidden z-20 lg:ml-8 lg:block lg:self-stretch">
@@ -219,7 +220,7 @@ export default function Example() {
                     <Popover key={category.name} className="flex">
                       <div className="relative flex">
                         <PopoverButton
-                          className="relative z-10 -mb-px flex items-center border-transparent pt-px text-sm font-medium text-gray-700 transition-colors duration-200 ease-out hover:border-black hover:text-gray-900 data-[open]:border-black data-[open]:text-black"
+                          className="relative z-10 -mb-px flex items-center  border-transparent pt-px text-sm font-medium text-gray-700 transition-colors duration-200 ease-out hover:border-black hover:text-gray-900 data-[open]:border-black data-[open]:text-black"
                         >
                           {category.name}
                         </PopoverButton>
@@ -293,10 +294,10 @@ export default function Example() {
                 </div>
                 {/* Search */}
                 <div className="flex lg:ml-6">
-                <button onClick={() => setIsSearchOpen(true)} className="p-2 text-gray-400 hover:text-gray-500">
-            <span className="sr-only">Search</span>
-            <MagnifyingGlassIcon aria-hidden="true" className="size-6" />
-          </button>
+                  <button onClick={() => setIsSearchOpen(true)} className="p-2 text-gray-400 hover:text-gray-500">
+                    <span className="sr-only">Search</span>
+                    <MagnifyingGlassIcon aria-hidden="true" className="size-6" />
+                  </button>
                 </div>
 
                 {/* Cart */}

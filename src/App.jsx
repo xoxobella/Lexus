@@ -9,6 +9,7 @@ import Aboutus from './Pages/Aboutus.jsx';
 import Cartpage from './Pages/Cartpage.jsx';
 import AuthForm from './Forms/Auth.jsx'; // Combined Auth Form component
 import Profile from './Pages/Userpage.jsx'; // User Page component
+import Sofapage from "./Pages/Sofapage.jsx";
 
 const App = () => {
   const [user, setUser] = useState(null);
@@ -41,6 +42,7 @@ const App = () => {
             <Route path="/" element={<Homepage />} />
             <Route path="/aboutus" element={<Aboutus />} />
             <Route path="/cart" element={<Cartpage />} />
+            <Route path="/sofapage"element={<Sofapage />} />
             <Route path="/product/:id" element={<ProductDetails />} />
             <Route path="/auth" element={<AuthForm onCreate={handleCreate} onSignIn={handleSignIn} users={users} />} />
             <Route path="/profile" element={user ? <Profile user={user} onLogout={handleLogout} /> : <Navigate to="/auth" />} />

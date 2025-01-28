@@ -7,9 +7,10 @@ export default {
   theme: {
     extend: {
       colors: {
-        primary: "#86efac", // Green 
-        secondary: "#cbd5e1", // Slate
-        tertiary:  "#18181b" // Zinc
+        primary: "#6d9773", // light Green 
+        secondary: "#0c3b2e", // dark green
+        tertiary:  "#bb8a52", // Cream
+        quaternary: "#ffba00" // Orange
       },
       animation: {
         'scroll': 'scroll 40s linear infinite',

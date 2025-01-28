@@ -26,7 +26,7 @@ const ProductDetails = () => {
   // Example product data (replace with actual product data)
   const product = {
     id: '1',
-    name: 'Product 1',
+    name: 'Modern Leather Sofa',
     price: 99.99,
     originalPrice: 149.99,
     discount: 33,
@@ -75,7 +75,7 @@ const ProductDetails = () => {
         {/* Back Button */}
         <button
           onClick={() => navigate('/')}
-          className="flex items-center text-gray-600 hover:text-gray-900 mb-8"
+          className="flex items-center text-secondary hover:text-primary mb-8"
         >
           <ChevronLeft className="h-5 w-5 mr-2" />
           Back to Products
@@ -112,7 +112,7 @@ const ProductDetails = () => {
           {/* Right Column - Product Info */}
           <div className="space-y-6">
             <div>
-              <h1 className="text-3xl font-bold text-gray-900">{product.name}</h1>
+              <h1 className="text-6xl text-secondary font-serif font-bold">{product.name}</h1>
               <div className="flex items-center mt-4">
                 <div className="flex items-center">
                   {[...Array(5)].map((_, index) => (
@@ -154,7 +154,7 @@ const ProductDetails = () => {
                   <button
                     key={color}
                     onClick={() => setSelectedColor(color)}
-                    className={`px-4 py-2 border rounded-md ${selectedColor === color ? 'border-black bg-black text-white' : 'border-gray-200 hover:border-gray-300'}`}
+                    className={`px-4 py-2 border rounded-md ${selectedColor === color ? 'border-black bg-primary text-white' : 'border-gray-200 hover:border-gray-300'}`}
                   >
                     {color}
                   </button>
@@ -170,7 +170,7 @@ const ProductDetails = () => {
                   <button
                     key={size}
                     onClick={() => setSelectedSize(size)}
-                    className={`px-4 py-2 border rounded-md ${selectedSize === size ? 'border-black bg-black text-white' : 'border-gray-200 hover:border-gray-300'}`}
+                    className={`px-4 py-2 border rounded-md ${selectedSize === size ? 'border-black bg-primary text-white' : 'border-gray-200 hover:border-gray-300'}`}
                   >
                     {size}
                   </button>
@@ -204,7 +204,7 @@ const ProductDetails = () => {
               <button
                 onClick={handleAddItem}
                 aria-label="Add to cart"
-                className="flex-1 bg-black hover:bg-gray-800 text-white px-6 py-3 rounded-md font-medium flex items-center justify-center space-x-2"
+                className="flex-1 bg-primary hover:bg-gray-200 hover:text-gray-800 text-white px-6 py-3 rounded-md font-medium flex items-center justify-center space-x-2"
               >
                 <ShoppingCart className="h-5 w-5" aria-hidden="true" />
                 <span>Add to Cart</span>
