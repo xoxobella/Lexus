@@ -32,7 +32,7 @@ const AboutSection = () => {
 
                     {/* First Text Content */}
                     <div className="space-y-6">
-                        <h2 className="text-3xl sm:text-4xl font-bold">
+                        <h2 className="text-6xl text-secondary sm:text-8xl font-bold">
                             Buy furniture worth keeping.
                         </h2>
                         <p className="text-gray-600 leading-relaxed">
@@ -50,7 +50,7 @@ const AboutSection = () => {
                 <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
                     {/* Second Text Content */}
                     <div className="space-y-6 lg:order-2">
-                        <h2 className="text-3xl sm:text-4xl font-bold">
+                        <h2 className="text-6xl text-secondary sm:text-8xl font-bold">
                             Down with Allen keys!
                         </h2>
                         <p className="text-gray-600 leading-relaxed">
@@ -76,7 +76,7 @@ const AboutSection = () => {
                         </div>
                     </div>
                     <div className="space-y-8">
-                        <h2 className="text-4xl sm:text-5xl font-bold tracking-tight">
+                        <h2 className="text-6xl text-secondary sm:text-8xl font-bold tracking-tight">
                             You can&lsquo;t<br />
                             afford dodgy furniture.
                         </h2>

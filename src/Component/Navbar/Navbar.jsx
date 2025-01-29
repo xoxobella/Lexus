@@ -36,25 +36,25 @@ const navigation = {
       featured: [
         {
           name: 'Modern Sectional',
-          href: '#',
+          href: '/productpage',
           imageSrc: [Product1],
           imageAlt: 'Modern L-shaped sectional sofa in gray',
         },
         {
           name: 'Leather Couch',
-          Link: '/sofapage',
+          href: '/productpage',
           imageSrc: [Product2],
           imageAlt: 'Brown leather sofa in contemporary living room',
         },
         {
           name: 'Loveseat',
-          href: '#',
+          href: '/productpage',
           imageSrc: [sofa],
           imageAlt: 'Compact two-seater loveseat in beige',
         },
         {
           name: 'Recliner',
-          href: '#',
+          href: '/productpage',
           imageSrc: [sofa],
           imageAlt: 'Modern reclining sofa with adjustable headrest',
         },
@@ -66,13 +66,13 @@ const navigation = {
       featured: [
         {
           name: 'New Arrivals',
-          href: '#',
+          href: '/productpage',
           imageSrc: [mattres],
           imageAlt: 'Drawstring top with elastic loop closure and textured interior padding.',
         },
         {
           name: 'Artwork Tees',
-          Link: '/sofapage',
+          Link: '/productpage',
           imageSrc: [mattres],
           imageAlt:
             'Three shirts in gray, white, and blue arranged on table with same line drawing of hands and shapes overlapping on front of shirt.',
@@ -220,7 +220,7 @@ export default function Example() {
                     <Popover key={category.name} className="flex">
                       <div className="relative flex">
                         <PopoverButton
-                          className="relative z-10 -mb-px flex items-center  border-transparent pt-px text-sm font-medium text-gray-700 transition-colors duration-200 ease-out hover:border-black hover:text-gray-900 data-[open]:border-black data-[open]:text-black"
+                          className="relative z-10 -mb-px flex items-center  border-transparent pt-px text-sm font-medium text-gray-700 transition-colors duration-200 ease-out  hover:text-gray-900 data-[open]:text-black"
                         >
                           {category.name}
                         </PopoverButton>
@@ -252,10 +252,13 @@ export default function Example() {
                                         20% OFF
                                       </div>
                                     </div>
-                                    <a href={item.href} className="mt-6 block font-medium text-gray-900 hover:text-gray-700" onClick={addToCart}>
+                                    <Link
+                                      to={item.href}
+                                      className="mt-6 block font-medium text-gray-900 hover:text-gray-700"
+                                    >
                                       <span aria-hidden="true" className="absolute inset-0 z-10" />
                                       {item.name}
-                                    </a>
+                                    </Link>
                                     <p aria-hidden="true" className="mt-1">
                                       Shop now
                                     </p>

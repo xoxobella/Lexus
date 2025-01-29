@@ -1,3 +1,4 @@
+// eslint-disable-next-line no-unused-vars
 import React, { useState } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { removeFromCart } from '../../Redux/CartActions'; // Adjust the path as necessary
@@ -40,7 +41,7 @@ const CartCheckoutPage = () => {
 
   return (
     <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-10">
-      <h1 className="text-2xl font-bold">Shopping Cart & Checkout</h1>
+      <h1 className="text-6xl text-secondary font-serif font-bold">Shopping <br /> Cart & Checkout</h1>
       {cartItems.length > 0 ? (
         <div className="mt-6">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
@@ -74,15 +75,15 @@ const CartCheckoutPage = () => {
               ))}
               <button
                 onClick={() => setShowForm(!showForm)}
-                className="block lg:hidden px-4 py-2 bg-indigo-600 text-white rounded-md hover:bg-indigo-500 mt-4"
+                className="block lg:hidden px-4 py-2 bg-gray-200 text-gray-800 rounded-md hover:text-white hover:bg-primary mt-4"
               >
                 {showForm ? "Hide Checkout Form" : "Show Checkout Form"}
               </button>
             </div>
 
             {/* Checkout Section */}
-            <div className={`bg-gray-100 p-6 rounded-md shadow-md ${!showForm && "hidden lg:block"}`}>
-              <h2 className="text-xl font-bold mb-4">Checkout</h2>
+            <div className={`bg-gray-100 p-6 rounded-md shadow-md ${!showForm && "hidden bg-primary lg:block"}`}>
+              <h2 className="text-2xl text-secondary font-serif font-bold mb-4">Checkout</h2>
 
               {/* Shipping Address */}
               <div className="border-b pb-4 mb-4">
@@ -97,7 +98,7 @@ const CartCheckoutPage = () => {
                 {!isAddressSaved && (
                   <button
                     onClick={handleSaveAddress}
-                    className="mt-2 px-4 py-2 bg-indigo-600 text-white rounded-md hover:bg-indigo-500"
+                    className="mt-2 px-4 py-2 bg-primary text-white rounded-md hover:bg-gray-200  hover:text-gray-800"
                   >
                     Save Address
                   </button>
@@ -187,7 +188,7 @@ const CartCheckoutPage = () => {
               <div className="mt-6 flex justify-end">
                 <button
                   onClick={handleBuyNow}
-                  className="px-6 py-3 bg-black text-white rounded-md font-medium hover:bg-gray-800"
+                  className="px-6 py-3 bg-primary text-white rounded-md font-medium hover:bg-gray-200  hover:text-gray-800"
                 >
                   Checkout
                 </button>
@@ -196,7 +197,9 @@ const CartCheckoutPage = () => {
           </div>
         </div>
       ) : (
-        <p className="mt-6 text-gray-600">Your cart is empty.</p>
+        
+        <p className="mt-6 text-primary text-4xl">Your cart is empty.</p>
+        
       )}
     </div>
   );

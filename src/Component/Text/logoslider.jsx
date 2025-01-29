@@ -28,7 +28,7 @@ const LogoSlider = () => {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Header */}
         <div className="flex items-center mb-8">
-          <span className="text-lg text-gray-600 font-medium">As seen in</span>
+          <span className="text-6xl text-secondary font-serif font-medium">As seen in</span>
           <div className="ml-4 flex-grow border-t border-gray-200"></div>
         </div>
 

@@ -1,14 +1,12 @@
 import { useState } from "react";
-import { useNavigate } from "react-router-dom"; // Import useNavigate for navigation
-import Video from '../assets/videos/bg-form.mp4';
+import { useNavigate } from "react-router-dom";
+import { Link } from "react-router-dom";
+import { motion } from "framer-motion";
+import { FaGoogle, FaApple, FaFacebook, FaTwitter } from "react-icons/fa";
 
 export default function SignUp() {
-  const navigate = useNavigate(); // Initialize navigation
-  const [formData, setFormData] = useState({
-    name: "",
-    email: "",
-    password: "",
-  });
+  const navigate = useNavigate();
+  const [formData, setFormData] = useState({ email: "", password: "" });
 
   const handleChange = (e) => {
     setFormData({ ...formData, [e.target.name]: e.target.value });
@@ -17,78 +15,75 @@ export default function SignUp() {
   const handleSubmit = (e) => {
     e.preventDefault();
     console.log("Form submitted:", formData);
+    navigate("/");
   };
 
   return (
-    <div className="relative w-full h-screen flex justify-center items-center overflow-hidden">
-      {/* Background Video */}
-      <video
-        autoPlay
-        loop
-        muted
-        className="absolute inset-0 w-full h-full object-cover filter grayscale"
+    <div className="flex bg-secondary justify-center items-center min-h-screen bg-gray-100 px-4">
+      <motion.div
+        className="bg-white p-6 md:p-8 rounded-lg shadow-lg w-full max-w-4xl flex flex-col md:flex-row"
+        initial={{ opacity: 0, scale: 0.9 }}
+        animate={{ opacity: 1, scale: 1 }}
+        transition={{ duration: 0.5 }}
       >
-        <source src={Video} type="video/mp4" />
-      </video>
-
-      {/* Black & White Overlay */}
-      <div className="absolute inset-0 bg-black bg-opacity-60 mix-blend-overlay"></div>
-
-      {/* Animated Form Card */}
-      <div className="relative bg-white bg-opacity-70 shadow-lg rounded-lg p-8 w-full max-w-md animate-fadeIn transition-transform transform duration-500 ease-in-out hover:scale-105">
-        <h2 className="text-2xl font-bold text-center text-gray-900">Sign Up</h2>
-        <form onSubmit={handleSubmit} className="mt-6 space-y-4">
-          <div>
-            <label className="block text-gray-700">Name</label>
-            <input
-              type="text"
-              name="name"
-              value={formData.name}
-              onChange={handleChange}
-              className="w-full p-3 mt-1 border rounded-lg bg-gray-100 focus:outline-none focus:ring-2 focus:ring-black"
-              required
-            />
-          </div>
-          <div>
-            <label className="block text-gray-700">Email</label>
+        {/* Left Side - Form */}
+        <div className="w-full md:w-1/2 p-6 border-b md:border-r md:border-b-0">
+          <h2 className="text-3xl md:text-4xl font-bold text-left text-secondary mb-6">Log into Your Account</h2>
+          <form onSubmit={handleSubmit} className="space-y-4">
             <input
               type="email"
               name="email"
+              placeholder="Email Address"
               value={formData.email}
               onChange={handleChange}
-              className="w-full p-3 mt-1 border rounded-lg bg-gray-100 focus:outline-none focus:ring-2 focus:ring-black"
+              className="w-full p-3 border rounded-lg focus:ring-2 focus:ring-black"
               required
             />
-          </div>
-          <div>
-            <label className="block text-gray-700">Password</label>
             <input
               type="password"
               name="password"
+              placeholder="Password"
               value={formData.password}
               onChange={handleChange}
-              className="w-full p-3 mt-1 border rounded-lg bg-gray-100 focus:outline-none focus:ring-2 focus:ring-black"
+              className="w-full p-3 border rounded-lg focus:ring-2 focus:ring-black"
               required
             />
-          </div>
-          <button
-            type="submit"
-            className="w-full bg-black text-white p-3 rounded-lg hover:bg-gray-800 transition duration-300"
-          >
-            Register
-          </button>
-        </form>
-
-        {/* Back to Home Button */}
-        <div className="mt-4 text-center">
-          <button
-            onClick={() => navigate("/")}
-            className="text-gray-500 hover:text-gray-700 transition duration-300"
-          >
-            Back to Home
-          </button>
+            <motion.button
+              type="submit"
+              className="w-full bg-primary text-white p-3 rounded-lg hover:bg-gray-200 hover:text-gray-800 transition duration-300"
+              whileHover={{ scale: 1.05 }}
+            >
+              Log In
+            </motion.button>
+            <div className="text-center text-secondary text-sm sm:text-base">
+              <Link to="/" className="hover:underline">Back to Website</Link>
+            </div>
+          </form>
         </div>
-      </div>
+
+        {/* Right Side - Social Login */}
+        <div className="w-full md:w-1/2 p-6 flex flex-col justify-center">
+          <div className="flex items-center mb-4">
+            <hr className="flex-grow border-gray-300" />
+            <span className="px-2 text-gray-500">OR</span>
+            <hr className="flex-grow border-gray-300" />
+          </div>
+          <div className="space-y-3">
+            <button className="w-full flex items-center justify-center p-3 border rounded-lg hover:bg-primary hover:text-gray-800 transition">
+              <FaGoogle className="mr-2" /> Continue with Google
+            </button>
+            <button className="w-full flex items-center justify-center p-3 border rounded-lg hover:bg-primary hover:text-gray-800 transition">
+              <FaApple className="mr-2" /> Continue with Apple
+            </button>
+            <button className="w-full flex items-center justify-center p-3 border rounded-lg hover:bg-primary hover:text-gray-800 transition">
+              <FaFacebook className="mr-2" /> Continue with Facebook
+            </button>
+            <button className="w-full flex items-center justify-center p-3 border rounded-lg hover:bg-primary hover:text-gray-800 transition">
+              <FaTwitter className="mr-2" /> Continue with Twitter
+            </button>
+          </div>
+        </div>
+      </motion.div>
     </div>
   );
 }

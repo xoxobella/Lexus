@@ -126,7 +126,7 @@ const ProductSection = () => {
             <div className="w-full h-0.5 bg-gray-200 my-8 sm:my-12"></div>
 
             <div className='my-8 text-left sm:text-2xl'>
-                <h1 className='text-6xl text-secondary font-serif font-bold'> Sofas <br /> Designed for Ultimate Comfort</h1>
+                <h1 className='text-6xl text-secondary font-serif font-bold'>Top Comfort Picks: <br /> Sofa & Mattress of the Year!</h1>
             </div>
             {/* Filters */}
             <div className="flex flex-col sm:flex-row justify-between gap-4 mb-8">

@@ -15,10 +15,10 @@ import Footer from '../Component/Footer/Footer.jsx'
 const Homepage = () => {
   return (
     <>
+      <Text />
       <Navbar />
       <Extra />
       <Service />
-      <Text />
       <Mattres />
       <Logoslider />
       <Sofa />
