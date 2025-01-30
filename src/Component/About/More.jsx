@@ -1,6 +1,6 @@
 /* eslint-disable no-unused-vars */
 import React, { useState, useRef } from 'react';
-import Graph from '../../assets/image/Comparison_Infographic.png'
+import Graph from '../../assets/image/about/Comparison_Infographic.png'
 import video1 from '../../assets/videos/c0d048a2bdbe4be3a9c48fb95d66e00d.HD-1080p-3.3Mbps-35399727.mp4'
 import video2 from '../../assets/videos/f2a50770080048c4b2b9927c627a1f4d.HD-1080p-2.5Mbps-35399708.mp4'
 
@@ -32,7 +32,7 @@ const AboutSection = () => {
 
                     {/* First Text Content */}
                     <div className="space-y-6">
-                        <h2 className="text-6xl text-secondary sm:text-8xl font-bold">
+                        <h2 className="text-4xl sm:text-5xl md:text-6xl text-secondary font-serif font-bold">
                             Buy furniture worth keeping.
                         </h2>
                         <p className="text-gray-600 leading-relaxed">
@@ -50,7 +50,7 @@ const AboutSection = () => {
                 <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
                     {/* Second Text Content */}
                     <div className="space-y-6 lg:order-2">
-                        <h2 className="text-6xl text-secondary sm:text-8xl font-bold">
+                        <h2 className="text-4xl sm:text-5xl md:text-6xl text-secondary font-serif font-bold">
                             Down with Allen keys!
                         </h2>
                         <p className="text-gray-600 leading-relaxed">
@@ -76,7 +76,7 @@ const AboutSection = () => {
                         </div>
                     </div>
                     <div className="space-y-8">
-                        <h2 className="text-6xl text-secondary sm:text-8xl font-bold tracking-tight">
+                        <h2 className="text-4xl sm:text-5xl md:text-6xl text-secondary font-serif font-bold tracking-tight">
                             You can&lsquo;t<br />
                             afford dodgy furniture.
                         </h2>

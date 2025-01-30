@@ -1,11 +1,14 @@
 /* eslint-disable no-unused-vars */
 import React, { useState, useEffect, useRef } from 'react';
 import { useNavigate } from 'react-router-dom';
+import { motion } from "framer-motion";
 import { Star, ShoppingCart, Heart, ChevronLeft, ChevronRight } from 'react-feather';
 import Select from "react-select";
 
-import sofa from '../../assets/image/product/sofa.avif';
-import mattres from '../../assets/image/product/Mattres.avif';
+import id1 from '../../assets/sofa_bed/id_mattress.webp';
+import id2 from '../../assets/sofa_bed/id2_mattress.avif';
+import id3 from '../../assets/sofa_bed/id3_mattress.avif';
+import id4 from '../../assets/sofa_bed/id4_mattress.avif';
 
 const styles = {
     scrollContainer: {
@@ -44,23 +47,43 @@ const ProductSection = () => {
         {
             id: 1,
             name: "Modern Leather Sofa",
-            price: 999.99,
-            originalPrice: 1299.99,
+            price: 650.99,
+            originalPrice: 799.99,
             rating: 4,
             reviews: 125,
-            image: [sofa],
+            image: [id1],
             discount: 20,
-            category: "sofa",
+            category: "Affordable",
             featured: true,
         },
         {
             id: 2,
-            name: "Elegant Armchair",
-            price: 499.99,
+            name: "Wandana sofa bed",
+            price: 1200,
             rating: 5,
             reviews: 89,
-            image: [mattres],
-            category: "chair",
+            image: [id2],
+            category: "Luxuries",
+            featured: true,
+        },
+        {
+            id: 3,
+            name: "Wandana sofa bed",
+            price: 799,
+            rating: 5,
+            reviews: 89,
+            image: [id3],
+            category: "Best Seller",
+            featured: true,
+        },
+        {
+            id: 4,
+            name: "Wandana sofa bed",
+            price: 699,
+            rating: 5,
+            reviews: 89,
+            image: [id4],
+            category: "Best Seller",
             featured: true,
         },
     ];
@@ -85,9 +108,9 @@ const ProductSection = () => {
 
     const categoryOptions = [
         { value: "all", label: "All Categories" },
-        { value: "sofa", label: "Sofas" },
-        { value: "chair", label: "Chairs" },
-        { value: "table", label: "Tables" },
+        { value: "Best Seller", label: "Best Seller" },
+        { value: "Affordable", label: "Affordable"},
+        { value: "Luxuries", label: "Luxuries" },
     ];
 
     const sortOptions = [
@@ -110,7 +133,7 @@ const ProductSection = () => {
             color: state.isFocused ? "white" : primaryColor,
         }),
     };
-    
+
 
     useEffect(() => {
         const timer = setInterval(() => {
@@ -125,9 +148,16 @@ const ProductSection = () => {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
             <div className="w-full h-0.5 bg-gray-200 my-8 sm:my-12"></div>
 
-            <div className='my-8 text-left sm:text-2xl'>
-                <h1 className='text-6xl text-secondary font-serif font-bold'> Sofas <br /> Designed for Ultimate Comfort</h1>
-            </div>
+            <motion.div
+                initial={{ opacity: 0, x: 50 }} // Start from right & invisible
+                animate={{ opacity: 1, x: 0 }} // Move to normal position & fade in
+                transition={{ duration: 1, ease: "easeOut" }} // Smooth transition
+                className='my-8 text-right sm:text-2xl'
+            >
+                <h1 className='text-4xl sm:text-5xl md:text-6xl text-secondary font-serif font-bold'>
+                    Mattress <br /> Where Comfort Meets Recovery.
+                </h1>
+            </motion.div>
             {/* Filters */}
             <div className="flex flex-col sm:flex-row justify-between gap-4 mb-8">
                 <Select
@@ -149,26 +179,32 @@ const ProductSection = () => {
                 />
             </div>
 
-            {/* Product Grid */}
-            <div ref={scrollContainerRef} className="flex sm:grid sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6 overflow-x-auto sm:overflow-visible pb-4" style={styles.scrollContainer}>
-                {sortedProducts.map((product) => (
-                    <div key={product.id} className="flex-shrink-0 w-[80vw] sm:w-auto group bg-white rounded-lg shadow-md overflow-hidden hover:shadow-xl transition-shadow duration-300">
-                        <div className="relative aspect-square cursor-pointer" onClick={() => navigate(`/product/${product.id}`)}>
-                            <img src={product.image} alt={product.name} className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300" />
-                        </div>
-                        <div className="p-4">
-                            <h3 className="text-lg font-semibold text-gray-800 mb-1 truncate">{product.name}</h3>
-                            <div className="flex items-center mb-3">
-                                <span className="text-xl font-bold text-gray-900">${product.price.toFixed(2)}</span>
+            {/* Check if there are no products for the selected category */}
+            {filteredProducts.length === 0 ? (
+                <div className="text-center font-extrabold  text-3xl text-primary">
+                    <p>Not in stock :( Sorry </p>
+                </div>
+            ) : (
+                <div ref={scrollContainerRef} className="flex sm:grid sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6 overflow-x-auto sm:overflow-visible pb-4" style={styles.scrollContainer}>
+                    {sortedProducts.map((product) => (
+                        <div key={product.id} className="flex-shrink-0 w-[80vw] sm:w-auto group bg-white rounded-lg shadow-md overflow-hidden hover:shadow-xl transition-shadow duration-300">
+                            <div className="relative aspect-square cursor-pointer" onClick={() => navigate(`/Mattress/${product.id}`)}>
+                                <img src={product.image} alt={product.name} className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300" />
                             </div>
-                            <button className="w-full bg-primary hover:bg-gray-200 hover:text-gray-800 text-white py-2 rounded-md flex items-center justify-center space-x-2 transition-colors">
-                                <ShoppingCart className="h-5 w-5" />
-                                <span>Add to Cart</span>
-                            </button>
+                            <div className="p-4">
+                                <h3 className="text-lg font-semibold text-gray-800 mb-1 truncate">{product.name}</h3>
+                                <div className="flex items-center mb-3">
+                                    <span className="text-xl font-bold text-gray-900">${product.price.toFixed(2)}</span>
+                                </div>
+                                <button className="w-full bg-primary hover:bg-gray-200 hover:text-gray-800 text-white py-2 rounded-md flex items-center justify-center space-x-2 transition-colors">
+                                    <ShoppingCart className="h-5 w-5" />
+                                    <span>Add to Cart</span>
+                                </button>
+                            </div>
                         </div>
-                    </div>
-                ))}
-            </div>
+                    ))}
+                </div>
+            )}
         </div>
     );
 };

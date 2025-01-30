@@ -82,7 +82,7 @@ const CartCheckoutPage = () => {
             </div>
 
             {/* Checkout Section */}
-            <div className={`bg-gray-100 p-6 rounded-md shadow-md ${!showForm && "hidden bg-primary lg:block"}`}>
+            <div className={`bg-gray-100 p-6 rounded-md shadow-md ${!showForm && "hidden bg-gray-200 lg:block"}`}>
               <h2 className="text-2xl text-secondary font-serif font-bold mb-4">Checkout</h2>
 
               {/* Shipping Address */}

@@ -3,60 +3,90 @@ import React, { useState } from "react";
 import Navbar from '../Component/Navbar/Navbar'
 import Footer from "../Component/Footer/Footer";
 
+import id1 from '../assets/sofa_bed/id_mattress.webp';
+import id2 from '../assets/sofa_bed/id2_mattress.avif';
+import id3 from '../assets/sofa_bed/id3_mattress.avif';
+import id4 from '../assets/sofa_bed/id4_mattress.avif';
+
+import sofa from '../assets/image/product/sofa.avif';
+import id1_sofa from '../assets/sofa_bed/id1_sofa.webp';
+import id2_sofa from '../assets/sofa_bed/id2_sofa.webp';
+
+
 const products = [
   {
     id: 1,
-    name: "Koala Mattress",
-    price: "$850",
-    image: "https://via.placeholder.com/200",
-    rating: 4.8,
-    reviews: 2045,
+    name: "Modern Leather Sofa",
+    price: 650.99,
+    originalPrice: 799.99,
+    rating: 4,
+    reviews: 125,
+    image: [id1],
+    discount: 20,
     category: "Mattresses",
+    featured: true,
   },
   {
     id: 2,
-    name: "Cushy Sofa Bed",
-    price: "$1,390",
-    image: "https://via.placeholder.com/200",
-    rating: 4.7,
-    reviews: 1673,
-    category: "Sofas",
+    name: "Wandana sofa bed",
+    price: 1200,
+    rating: 5,
+    reviews: 89,
+    image: [id2],
+    category: "Mattresses",
+    featured: true,
   },
   {
     id: 3,
-    name: "Koala Plus Mattress",
-    price: "$990",
-    image: "https://via.placeholder.com/200",
-    rating: 4.8,
-    reviews: 628,
+    name: "Wandana sofa bed",
+    price: 799,
+    rating: 5,
+    reviews: 89,
+    image: [id3],
     category: "Mattresses",
+    featured: true,
   },
   {
     id: 4,
-    name: "Koala Plus Mattress",
-    price: "$990",
-    image: "https://via.placeholder.com/200",
-    rating: 4.8,
-    reviews: 628,
+    name: "Wandana sofa bed",
+    price: 699,
+    rating: 5,
+    reviews: 89,
+    image: [id4],
     category: "Mattresses",
+    featured: true,
   },
   {
     id: 5,
-    name: "Koala Plus Mattress",
-    price: "$990",
-    image: "https://via.placeholder.com/200",
-    rating: 4.8,
-    reviews: 628,
-    category: "Mattresses",
+    name: "Modern Leather Sofa",
+    price: 999.99,
+    originalPrice: 1299.99,
+    rating: 4,
+    reviews: 125,
+    image: [sofa],
+    discount: 20,
+    category: "Sofas",
+    featured: true,
   },
   {
     id: 6,
-    name: "Koala Plus Mattress",
-    price: "$990",
-    image: "https://via.placeholder.com/200",
-    rating: 4.8,
-    reviews: 628,
-    category: "Mattresses",
+    name: "Elegant Sofa",
+    price: 499.99,
+    rating: 5,
+    reviews: 89,
+    image: [id1_sofa],
+    category: "Sofas",
+    featured: true,
+  },
+  {
+    id: 7,
+    name: "Wandana Leather Sofa",
+    price: 499.99,
+    rating: 5,
+    reviews: 89,
+    image: [id2_sofa],
+    category: "Sofas",
+    featured: true,
   },
 ];
 

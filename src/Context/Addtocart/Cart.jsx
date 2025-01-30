@@ -1,13 +1,14 @@
 /* eslint-disable no-unused-vars */
 /* eslint-disable react-refresh/only-export-components */
-// Context/Addtocart/Cart.jsx
 import React, { createContext, useContext, useState } from 'react';
 
 const CartContext = createContext();
 
-// eslint-disable-next-line react/prop-types
 export const CartProvider = ({ children }) => {
   const [cartItems, setCartItems] = useState([]);
+
+  // Calculate the total number of items in the cart
+  const cartCount = cartItems.reduce((total, item) => total + item.quantity, 0);
 
   // Add an item to the cart
   const addItem = (item) => {
@@ -53,6 +54,7 @@ export const CartProvider = ({ children }) => {
     <CartContext.Provider
       value={{
         cartItems,
+        cartCount, // Provide cartCount value
         setCartItems,
         addItem,
         deleteItem,

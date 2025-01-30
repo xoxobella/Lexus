@@ -1,4 +1,3 @@
-/* eslint-disable no-unused-vars */
 import React from 'react';
 import { Facebook, Instagram, Twitter } from 'react-feather';
 import { motion } from 'framer-motion';
@@ -94,16 +93,8 @@ const Footer = () => {
         </div>
       </motion.div>
 
-      {/* Trust Badges */}
-      <motion.div className="border-t border-gray-200 py-6" variants={fadeInVariants}>
-        <div className="max-w-7xl mx-auto flex flex-wrap justify-center gap-8">
-          <img src="/path-to-visa.svg" alt="Visa" className="h-6 grayscale hover:grayscale-0 transition-all" />
-          <img src="/path-to-mastercard.svg" alt="Mastercard" className="h-6 grayscale hover:grayscale-0 transition-all" />
-          <img src="/path-to-amex.svg" alt="American Express" className="h-6 grayscale hover:grayscale-0 transition-all" />
-          <img src="/path-to-paypal.svg" alt="PayPal" className="h-6 grayscale hover:grayscale-0 transition-all" />
-        </div>
-      </motion.div>
     </motion.footer>
+
   );
 };
 

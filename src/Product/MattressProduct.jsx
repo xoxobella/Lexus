@@ -12,12 +12,6 @@ import productImage2 from '../assets/image/product/image2.webp';
 import productImage3 from '../../src/assets/image/product/image3.webp';
 import productImage4 from '../../src/assets/image/product/image4.webp';
 
-import id1_main from '../assets/sofa_bed/id1_main.webp'
-import id1_1 from '../assets/sofa_bed/id1_1.webp'
-import id1_2 from '../assets/sofa_bed/id1_2.webp'
-import id1_3 from '../assets/sofa_bed/id1_3.webp'
-import id1_4 from '../assets/sofa_bed/id1_4.webp'
-
 const ProductDetails = () => {
   const { id } = useParams();
   const navigate = useNavigate();
@@ -32,7 +26,7 @@ const ProductDetails = () => {
   const products = [
     {
       id: '1',
-      name: 'Modern Leather Sofa',
+      name: 'jk',
       price: 99.99,
       originalPrice: 149.99,
       discount: 33,
@@ -46,14 +40,14 @@ const ProductDetails = () => {
     },
     {
       id: '2',
-      name: 'Wandana sofa bed',
-      price: 1439,
-      originalPrice: 1500,
+      name: 'Mattress',
+      price: 99.99,
+      originalPrice: 149.99,
       discount: 33,
       rating: 4,
       reviews: 25,
       description: 'This is a great product description.',
-      images: [id1_main, id1_1,id1_2,id1_3,id1_4],
+      images: [productImage1, productImage2, productImage3, productImage4],
       colors: ['Red', 'Blue', 'Green'],
       sizes: ['S', 'M', 'L', 'XL'],
       stock: 10,

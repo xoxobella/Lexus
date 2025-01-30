@@ -2,30 +2,34 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import Video from  '../../assets/videos/treevideo.mp4'
+import image1 from '../../assets/image/about/About_sofa.jpg'
+import image2 from '../../assets/image/about/deliveryman.jpg'
+import image3 from '../../assets/image/about/similan-island.jpg'
+import image4 from '../../assets/image/about/Comparison_Infographic.png'
 
 const AboutUs = () => {
   const features = [
     {
       id: 1,
-      image: "https://images.unsplash.com/photo-1555041469-a586c61ea9bc",
+      image: (image1),
       title: "Thoughtful design",
       description: "Clever, comfy furniture that you're proud to show off but not precious about using everyday."
     },
     {
       id: 2,
-      image: "https://images.unsplash.com/photo-1556228453-efd6c1ff04f6",
+      image:(image4),
       title: "Everyday value",
       description: "Our direct-to-consumer model cuts out the middlemen, hidden costs and showroom expenses that charge you extra."
     },
     {
       id: 3,
-      image: "https://images.unsplash.com/photo-1609841644158-4c11986f0b11",
+      image: (image2),
       title: "Effortless experiences",
       description: "Fast and flexible delivery, tool-free assembly and a 120 night risk-free trial."
     },
     {
       id: 4,
-      image: "https://images.unsplash.com/photo-1497436072909-60f360e1d4b1",
+      image: (image3),
       title: "Designed with the world in mind",
       description: "Ethically made and designed to last. Every purchase helps save koalas and protect endangered Australian species and habitats."
     }
@@ -35,7 +39,7 @@ const AboutUs = () => {
     <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8 sm:py-16">
       {/* Header Section */}
       <div className="flex flex-col sm:flex-row justify-between items-start sm:items-center gap-4 mb-8 sm:mb-12">
-        <h8 className="text-6xl font-bold font-serif text-secondary">A little about us</h8>
+        <h8 className="text-4xl sm:text-5xl md:text-6xl text-secondary font-serif font-bold">A little about us</h8>
         <Link to="/aboutus" className="inline-block">
   <button className="px-6 py-2 border-2 border-black rounded-full hover:bg-primary hover:text-white transition-colors">
     LEARN MORE

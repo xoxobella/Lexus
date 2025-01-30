@@ -110,7 +110,7 @@ const ProductSection = () => {
             color: state.isFocused ? "white" : primaryColor,
         }),
     };
-    
+
 
     useEffect(() => {
         const timer = setInterval(() => {
@@ -126,7 +126,10 @@ const ProductSection = () => {
             <div className="w-full h-0.5 bg-gray-200 my-8 sm:my-12"></div>
 
             <div className='my-8 text-left sm:text-2xl'>
-                <h1 className='text-6xl text-secondary font-serif font-bold'>Top Comfort Picks: <br /> Sofa & Mattress of the Year!</h1>
+                <h1 className='text-4xl sm:text-5xl md:text-6xl text-secondary font-serif font-bold'>
+                    Top Comfort Picks: <br /> Sofa & Mattress of the Year!
+                </h1>
+
             </div>
             {/* Filters */}
             <div className="flex flex-col sm:flex-row justify-between gap-4 mb-8">
@@ -148,27 +151,32 @@ const ProductSection = () => {
                     classNamePrefix="react-select"
                 />
             </div>
-
-            {/* Product Grid */}
-            <div ref={scrollContainerRef} className="flex sm:grid sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6 overflow-x-auto sm:overflow-visible pb-4" style={styles.scrollContainer}>
-                {sortedProducts.map((product) => (
-                    <div key={product.id} className="flex-shrink-0 w-[80vw] sm:w-auto group bg-white rounded-lg shadow-md overflow-hidden hover:shadow-xl transition-shadow duration-300">
-                        <div className="relative aspect-square cursor-pointer" onClick={() => navigate(`/product/${product.id}`)}>
-                            <img src={product.image} alt={product.name} className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300" />
-                        </div>
-                        <div className="p-4">
-                            <h3 className="text-lg font-semibold text-gray-800 mb-1 truncate">{product.name}</h3>
-                            <div className="flex items-center mb-3">
-                                <span className="text-xl font-bold text-gray-900">${product.price.toFixed(2)}</span>
+            {/* Check if there are no products for the selected category */}
+            {filteredProducts.length === 0 ? (
+                <div className="text-center font-extrabold  text-3xl text-primary">
+                    <p>Not in stock :( Sorry </p>
+                </div>
+            ) : (
+                <div ref={scrollContainerRef} className="flex sm:grid sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6 overflow-x-auto sm:overflow-visible pb-4" style={styles.scrollContainer}>
+                    {sortedProducts.map((product) => (
+                        <div key={product.id} className="flex-shrink-0 w-[80vw] sm:w-auto group bg-white rounded-lg shadow-md overflow-hidden hover:shadow-xl transition-shadow duration-300">
+                            <div className="relative aspect-square cursor-pointer" onClick={() => navigate(`/Mattress/${product.id}`)}>
+                                <img src={product.image} alt={product.name} className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300" />
                             </div>
-                            <button className="w-full bg-primary hover:bg-gray-200 hover:text-gray-800 text-white py-2 rounded-md flex items-center justify-center space-x-2 transition-colors">
-                                <ShoppingCart className="h-5 w-5" />
-                                <span>Add to Cart</span>
-                            </button>
+                            <div className="p-4">
+                                <h3 className="text-lg font-semibold text-gray-800 mb-1 truncate">{product.name}</h3>
+                                <div className="flex items-center mb-3">
+                                    <span className="text-xl font-bold text-gray-900">${product.price.toFixed(2)}</span>
+                                </div>
+                                <button className="w-full bg-primary hover:bg-gray-200 hover:text-gray-800 text-white py-2 rounded-md flex items-center justify-center space-x-2 transition-colors">
+                                    <ShoppingCart className="h-5 w-5" />
+                                    <span>Add to Cart</span>
+                                </button>
+                            </div>
                         </div>
-                    </div>
-                ))}
-            </div>
+                    ))}
+                </div>
+            )}
         </div>
     );
 };

@@ -1,6 +1,7 @@
 /* eslint-disable no-unused-vars */
 import React, { useState } from 'react';
 import { ChevronLeft, ChevronRight, Star } from 'react-feather';
+import { Link } from 'react-router-dom';
 
 const Testimonials = () => {
   const [currentSlide, setCurrentSlide] = useState(0);
@@ -63,7 +64,7 @@ const Testimonials = () => {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Header */}
         <div className="mb-12 flex flex-col items-end">
-          <h2 className="text-6xl text-secondary font-serif font-bold text-right">
+          <h2 className="text-4xl sm:text-5xl md:text-6xl text-secondary text-right font-serif font-bold">
             What Our Customers Say
           </h2>
           <p className="text-primary text-right max-w-2xl ml-auto">
@@ -204,7 +205,7 @@ const Testimonials = () => {
         {/* Call to Action */}
         <div className="text-center mt-12">
           <a
-            href="/reviews"
+            href="/notfound"
             className="inline-flex items-center text-primary hover:text-gray-800  mb-1 truncate hover:underline"
           >
             View all reviews
@@ -227,7 +228,6 @@ const Testimonials = () => {
               </svg>
             ))}
           </div>
-
           {/* Text Content */}
           <div className="flex flex-wrap items-center justify-center md:justify-start">
             <span className="text-2xl md:text-3xl font-bold mr-2">Over</span>

@@ -82,7 +82,7 @@ const navigation = {
   ],
   pages: [
     { name: 'Company', href: '/Aboutus' },
-    { name: 'Stores', href: '/Store' },
+    { name: 'Stores', href: '/productpage' },
   ],
 }
 
@@ -92,6 +92,7 @@ export default function Example() {
   const cartCount = cartItems.reduce((total, item) => total + item.quantity, 0);
   const { addToCart } = useCart(); // Use the context
   const { isAuthenticated } = useSelector((state) => state.auth); // Access authentication state
+  // eslint-disable-next-line no-unused-vars
   const [isSearchOpen, setIsSearchOpen] = useState(false);
 
   return (
@@ -207,8 +208,7 @@ export default function Example() {
               {/* Logo */}
               <div className="flex">
                 <Link to="/">
-                  <span className="sr-only">Your Company</span>
-                  <h1 className="text-black font-serif text-xl hover:text-gray-500">Koala</h1>
+                  <h1 className="text-secondary font-serif text-3xl font-extrabold hover:text-primary">Koála</h1>
                 </Link>
               </div>
 
@@ -290,14 +290,14 @@ export default function Example() {
                       <VscAccount className="size-6 shrink-0 text-gray-400 group-hover:text-gray-500" />
                     </Link>
                   ) : (
-                    <Link to="/login" className="flex items-center">
-                      <VscAccount className="size-6 shrink-0 text-gray-400 group-hover:text-gray-500" />
+                    <Link to="/auth" className="flex items-center">
+                      <VscAccount className="size-6 shrink-0 text-secoandary group-hover:text-primary" />
                     </Link>
                   )}
                 </div>
                 {/* Search */}
                 <div className="flex lg:ml-6">
-                  <button onClick={() => setIsSearchOpen(true)} className="p-2 text-gray-400 hover:text-gray-500">
+                  <button onClick={() => setIsSearchOpen(true)} className="p-2 text-secoandary hover:text-primary">
                     <span className="sr-only">Search</span>
                     <MagnifyingGlassIcon aria-hidden="true" className="size-6" />
                   </button>
@@ -308,15 +308,20 @@ export default function Example() {
                   <Link to="/cart" className="group -m-2 flex items-center p-2">
                     <ShoppingBagIcon
                       aria-hidden="true"
-                      className="w-6 h-6 shrink-0 text-gray-400 group-hover:text-gray-500"
+                      className="w-6 h-6 shrink-0 text-secondary group-hover:text-primary"
                     />
                     {cartCount > 0 && (
-                      <span className="absolute top-0 right-0 inline-flex items-center justify-center h-4 w-4 rounded-full bg-red-500 text-white text-xs font-bold">
-                        {cartCount}
-                      </span>
+                     <span
+                     className="absolute top-0 right-0 inline-flex items-center justify-center h-4 w-4 rounded-full bg-red-500 text-white text-xs font-bold transform transition-transform duration-200 ease-out"
+                     style={{ transform: cartCount > 0 ? 'scale(1.1)' : 'scale(1)' }}
+                   >
+                     {cartCount}
+                   </span>
+
                     )}
                     <span className="sr-only">items in cart, view bag</span>
                   </Link>
+
                 </div>
               </div>
             </div>
